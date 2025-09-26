@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-import Logo3D from "./Logo3D";
+import CustomLogo from "./CustomLogo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,7 +41,7 @@ export default function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Logo3D size="md" />
+            <CustomLogo size="md" animated={false} variant="light" />
             <p className="text-background/80 mt-6 leading-relaxed max-w-md">
               Bold construction excellence that transforms your vision into reality. 
               Experience the perfect blend of modern design and proven craftsmanship.

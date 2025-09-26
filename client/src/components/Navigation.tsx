@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Logo3D from "./Logo3D";
+import CustomLogo from "./CustomLogo";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +43,11 @@ export default function Navigation() {
         }`}>
           {/* Logo */}
           <div className="transform transition-all duration-300 hover:scale-105">
-            <Logo3D size="sm" animated={true} />
+            <CustomLogo 
+              size="sm" 
+              animated={true} 
+              variant={scrolled ? "dark" : "light"}
+            />
           </div>
 
           {/* Desktop Navigation */}
