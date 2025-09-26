@@ -95,7 +95,7 @@ export default function ServicesSection() {
               style={{ animationDelay: `${index * 100}ms` }}
               data-testid={`service-card-${index}`}
             >
-              <ServiceCard {...service} />
+              <ServiceCard {...service} index={index} />
             </div>
           ))}
         </div>
