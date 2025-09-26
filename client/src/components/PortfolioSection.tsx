@@ -63,28 +63,28 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-background">
+    <section id="portfolio" className="py-12 sm:py-16 lg:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-6">
             OUR
             <span className="block text-primary">PORTFOLIO</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Explore our showcase of exceptional construction projects that demonstrate our commitment to quality, 
-            innovation, and client satisfaction across residential, commercial, and renovation work.
+            innovation, and client satisfaction.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 px-4 sm:px-0">
           {categories.map((category) => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="px-6 py-2 hover-elevate active-elevate-2"
+              className="px-4 sm:px-6 py-2 hover-elevate active-elevate-2 text-sm sm:text-base min-h-[44px]"
               data-testid={`filter-${category.toLowerCase()}`}
             >
               {category}
@@ -93,7 +93,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProjects.map((project, index) => (
             <div
               key={`${project.title}-${selectedCategory}`}
@@ -109,13 +109,13 @@ export default function PortfolioSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-muted-foreground mb-8">
+        <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
             Ready to start your own construction project? Let's discuss your vision.
           </p>
           <Button 
             size="lg"
-            className="px-8 py-4 text-lg font-semibold hover-elevate active-elevate-2"
+            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold hover-elevate active-elevate-2 min-h-[48px] w-full sm:w-auto"
             data-testid="button-portfolio-contact"
           >
             Start Your Project

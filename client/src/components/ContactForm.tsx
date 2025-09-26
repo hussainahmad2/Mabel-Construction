@@ -65,43 +65,43 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
       {/* Contact Information */}
       <div>
-        <h3 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h3>
-        <p className="text-muted-foreground mb-8 leading-relaxed">
+        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Get In Touch</h3>
+        <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
           Ready to start your construction project? Contact us today for a free consultation 
           and let's discuss how we can bring your vision to life.
         </p>
 
-        <div className="space-y-6">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <Phone className="w-6 h-6 text-primary-foreground" />
+        <div className="space-y-4 sm:space-y-6">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+              <Phone className="w-5 sm:w-6 h-5 sm:h-6 text-primary-foreground" />
             </div>
             <div>
-              <p className="font-semibold text-foreground">Phone</p>
-              <p className="text-muted-foreground">(555) 123-4567</p>
+              <p className="font-semibold text-foreground text-sm sm:text-base">Phone</p>
+              <p className="text-muted-foreground text-sm sm:text-base">(555) 123-4567</p>
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <Mail className="w-6 h-6 text-primary-foreground" />
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+              <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-primary-foreground" />
             </div>
             <div>
-              <p className="font-semibold text-foreground">Email</p>
-              <p className="text-muted-foreground">info@mabelconstruction.com</p>
+              <p className="font-semibold text-foreground text-sm sm:text-base">Email</p>
+              <p className="text-muted-foreground text-sm sm:text-base break-all">info@mabelconstruction.com</p>
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-primary-foreground" />
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+              <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-primary-foreground" />
             </div>
             <div>
-              <p className="font-semibold text-foreground">Office</p>
-              <p className="text-muted-foreground">123 Construction Ave<br />Building City, BC 12345</p>
+              <p className="font-semibold text-foreground text-sm sm:text-base">Office</p>
+              <p className="text-muted-foreground text-sm sm:text-base">123 Construction Ave<br />Building City, BC 12345</p>
             </div>
           </div>
         </div>
@@ -111,15 +111,15 @@ export default function ContactForm() {
       <div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Name*</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">First Name*</FormLabel>
                     <FormControl>
-                      <Input {...field} data-testid="input-first-name" />
+                      <Input {...field} className="h-12 text-base" data-testid="input-first-name" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -130,9 +130,9 @@ export default function ContactForm() {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Last Name*</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Last Name*</FormLabel>
                     <FormControl>
-                      <Input {...field} data-testid="input-last-name" />
+                      <Input {...field} className="h-12 text-base" data-testid="input-last-name" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,15 +140,15 @@ export default function ContactForm() {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email*</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Email*</FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} data-testid="input-email" />
+                      <Input type="email" {...field} className="h-12 text-base" data-testid="input-email" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -159,9 +159,9 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone*</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Phone*</FormLabel>
                     <FormControl>
-                      <Input type="tel" {...field} data-testid="input-phone" />
+                      <Input type="tel" {...field} className="h-12 text-base" data-testid="input-phone" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -174,10 +174,10 @@ export default function ContactForm() {
               name="projectType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Project Type*</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Project Type*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger data-testid="select-project-type">
+                      <SelectTrigger className="h-12 text-base" data-testid="select-project-type">
                         <SelectValue placeholder="Select your project type" />
                       </SelectTrigger>
                     </FormControl>
@@ -199,11 +199,11 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message*</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Message*</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Tell us about your project..." 
-                      className="min-h-[120px]"
+                      className="min-h-[120px] text-base"
                       {...field} 
                       data-testid="textarea-message"
                     />
@@ -216,7 +216,7 @@ export default function ContactForm() {
             <Button 
               type="submit" 
               size="lg" 
-              className="w-full font-semibold hover-elevate active-elevate-2"
+              className="w-full font-semibold hover-elevate active-elevate-2 h-12 sm:h-14 text-base sm:text-lg min-h-[48px]"
               disabled={isSubmitting}
               data-testid="button-submit-contact"
             >
@@ -227,7 +227,7 @@ export default function ContactForm() {
                 </>
               ) : (
                 <>
-                  <Send className="w-5 h-5 mr-2" />
+                  <Send className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                   Send Message
                 </>
               )}

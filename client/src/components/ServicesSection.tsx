@@ -72,22 +72,22 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-secondary/30">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-6">
             SERVICES
             <span className="block text-primary">We Provide</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Mabel Construction delivers comprehensive construction services with bold design and exceptional quality. 
             From custom homes to commercial projects, we build your vision with precision and style.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -101,12 +101,12 @@ export default function ServicesSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-muted-foreground mb-8">
+        <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
             Need a custom solution? We're here to help bring your vision to life.
           </p>
           <button 
-            className="bg-primary text-primary-foreground px-8 py-4 text-lg font-semibold rounded-md hover-elevate active-elevate-2 transition-all"
+            className="bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-md hover-elevate active-elevate-2 transition-all min-h-[48px] w-full sm:w-auto"
             data-testid="button-services-consultation"
           >
             Schedule Free Consultation

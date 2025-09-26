@@ -98,93 +98,95 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Animated Badge */}
-          <div className={`inline-flex items-center px-6 py-3 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30 mb-8 transition-all duration-1000 ${
+          <div className={`inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30 mb-6 sm:mb-8 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <Award className="w-5 h-5 text-primary mr-3" />
-            <span className="text-white font-semibold tracking-wide">#1 CONSTRUCTION COMPANY</span>
+            <Award className="w-4 sm:w-5 h-4 sm:h-5 text-primary mr-2 sm:mr-3" />
+            <span className="text-white font-semibold tracking-wide text-sm sm:text-base">#1 CONSTRUCTION COMPANY</span>
           </div>
           
           {/* Main Headlines with Staggered Animation */}
-          <h1 className={`text-4xl sm:text-6xl lg:text-8xl font-black text-white mb-6 leading-tight transition-all duration-1000 delay-300 ${
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            THE MODERN
+            <span className="block">THE MODERN</span>
             <span className="block bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
               CONSTRUCTION
             </span>
-            <span className="block text-white/90">& INDUSTRIAL AGENCY</span>
+            <span className="block text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl">& INDUSTRIAL AGENCY</span>
           </h1>
           
-          <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold text-white/90 mb-8 transition-all duration-1000 delay-500 ${
+          <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white/90 mb-6 sm:mb-8 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            Quality You Deserve • Prices You Can Afford
+            <span className="block sm:inline">Quality You Deserve</span>
+            <span className="hidden sm:inline"> • </span>
+            <span className="block sm:inline">Prices You Can Afford</span>
           </h2>
           
-          <p className={`text-lg sm:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-700 ${
+          <p className={`text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-700 px-4 sm:px-0 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            We take pride in our craftsmanship approach, working closely with clients to understand their vision and deliver projects that exceed expectations. From concept to completion, every detail matters.
+            We take pride in our craftsmanship approach, working closely with clients to understand their vision and deliver projects that exceed expectations.
           </p>
           
           {/* Enhanced Action Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 delay-900 ${
+          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center transition-all duration-1000 delay-900 px-4 sm:px-0 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Button 
               size="lg" 
-              className="text-lg px-10 py-4 h-14 bg-primary border-primary-border hover-elevate active-elevate-2 rounded-full font-bold tracking-wide shadow-2xl hover:shadow-primary/25 transition-all duration-300 group"
+              className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 h-12 sm:h-14 bg-primary border-primary-border hover-elevate active-elevate-2 rounded-full font-bold tracking-wide shadow-2xl hover:shadow-primary/25 transition-all duration-300 group min-h-[48px]"
               data-testid="button-hero-quote"
             >
               GET STARTED
-              <ArrowDown className="w-5 h-5 ml-3 rotate-[-90deg] transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowDown className="w-4 sm:w-5 h-4 sm:h-5 ml-2 sm:ml-3 rotate-[-90deg] transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
               onClick={handleVideoPlay}
-              className="text-lg px-8 py-4 h-14 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 rounded-full font-semibold transition-all duration-300 group"
+              className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-12 sm:h-14 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 rounded-full font-semibold transition-all duration-300 group min-h-[48px]"
               data-testid="button-hero-video"
             >
-              <Play className="w-5 h-5 mr-3 transition-transform duration-300 group-hover:scale-110" />
+              <Play className="w-4 sm:w-5 h-4 sm:h-5 mr-2 sm:mr-3 transition-transform duration-300 group-hover:scale-110" />
               WATCH VIDEO
             </Button>
           </div>
           
           {/* Stats Row */}
-          <div className={`mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 transition-all duration-1000 delay-1100 ${
+          <div className={`mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 transition-all duration-1000 delay-1100 px-4 sm:px-0 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-primary mb-2">20+</div>
-              <div className="text-white/80 font-medium">Years Experience</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary mb-1 sm:mb-2">20+</div>
+              <div className="text-white/80 font-medium text-sm sm:text-base">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-primary mb-2">500+</div>
-              <div className="text-white/80 font-medium">Projects Completed</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary mb-1 sm:mb-2">500+</div>
+              <div className="text-white/80 font-medium text-sm sm:text-base">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-black text-primary mb-2">100%</div>
-              <div className="text-white/80 font-medium">Client Satisfaction</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary mb-1 sm:mb-2">100%</div>
+              <div className="text-white/80 font-medium text-sm sm:text-base">Client Satisfaction</div>
             </div>
           </div>
         </div>
 
         {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2">
           <button 
             onClick={scrollToServices}
-            className={`flex flex-col items-center text-white/60 hover:text-white transition-all duration-500 group ${
+            className={`flex flex-col items-center text-white/60 hover:text-white transition-all duration-500 group min-h-[48px] min-w-[48px] ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             data-testid="button-scroll-down"
             style={{ animationDelay: '1300ms' }}
           >
-            <span className="text-sm font-bold mb-3 tracking-wider">DISCOVER MORE</span>
-            <div className="w-8 h-12 border-2 border-white/40 rounded-full flex justify-center">
-              <ArrowDown className="w-4 h-4 animate-bounce text-white/60 group-hover:text-primary transition-all duration-300 mt-2" />
+            <span className="text-xs sm:text-sm font-bold mb-2 sm:mb-3 tracking-wider">DISCOVER MORE</span>
+            <div className="w-6 sm:w-8 h-10 sm:h-12 border-2 border-white/40 rounded-full flex justify-center">
+              <ArrowDown className="w-3 sm:w-4 h-3 sm:h-4 animate-bounce text-white/60 group-hover:text-primary transition-all duration-300 mt-1 sm:mt-2" />
             </div>
           </button>
         </div>
