@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   imageUrl: string;
   completionDate: string;
+  status?: string;
   onClick?: () => void;
 }
 
@@ -18,6 +19,7 @@ export default function ProjectCard({
   description, 
   imageUrl, 
   completionDate,
+  status = "Completed",
   onClick 
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -59,6 +61,10 @@ export default function ProjectCard({
                 isHovered ? 'scale-100 translate-y-0' : 'scale-75 translate-y-4'
               }`}
               data-testid={`button-view-project-${title.toLowerCase().replace(/\s+/g, '-')}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onClick?.();
+              }}
             >
               <Eye className="w-5 h-5 mr-2" />
               View Project
@@ -80,8 +86,19 @@ export default function ProjectCard({
           </span>
         </div>
         
+        {/* Status Badge */}
+        <div className="absolute top-4 right-4">
+          <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg transition-all duration-300 ${
+            status === "Under Construction" 
+              ? 'bg-orange-500 text-white' 
+              : 'bg-green-500 text-white'
+          } ${isHovered ? 'scale-110' : 'scale-100'}`}>
+            {status}
+          </span>
+        </div>
+        
         {/* Corner Decoration */}
-        <div className={`absolute top-4 right-4 transition-all duration-500 ${
+        <div className={`absolute bottom-4 right-4 transition-all duration-500 ${
           isHovered ? 'opacity-100 rotate-12 scale-110' : 'opacity-0 rotate-0 scale-100'
         }`}>
           <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
@@ -115,12 +132,20 @@ export default function ProjectCard({
             isHovered ? 'text-foreground/80 transform translate-x-1' : 'text-muted-foreground'
           }`}>
             <Calendar className="w-4 h-4 mr-2 text-primary" />
-            <span>Completed: {completionDate}</span>
+            <span>
+              {status === "Under Construction" ? `Expected: ${completionDate}` : `Completed: ${completionDate}`}
+            </span>
           </div>
           
-          <div className={`flex items-center justify-between pt-2 border-t border-border/50 transition-all duration-300 ${
-            isHovered ? 'border-primary/20' : ''
-          }`}>
+          <div 
+            className={`flex items-center justify-between pt-2 border-t border-border/50 transition-all duration-300 cursor-pointer ${
+              isHovered ? 'border-primary/20' : ''
+            }`}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClick?.();
+            }}
+          >
             <div className="flex items-center text-primary text-sm font-semibold">
               <MapPin className="w-4 h-4 mr-1" />
               View Details
@@ -139,9 +164,7 @@ export default function ProjectCard({
       <div className={`absolute inset-0 transition-all duration-500 pointer-events-none ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 rounded-lg" style={{ padding: '1px' }}>
-          <div className="w-full h-full bg-background rounded-lg" />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 rounded-lg" />
       </div>
     </Card>
   );

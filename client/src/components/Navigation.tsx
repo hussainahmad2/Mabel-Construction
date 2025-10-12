@@ -8,11 +8,23 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" }
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { 
+      label: "Services", 
+      href: "/services",
+      submenu: [
+        { label: "Roofing Services", href: "/roofing-services" },
+        { label: "Remodeling Services", href: "/remodeling-services" },
+        { label: "Commercial Services", href: "/commercial-services" },
+        { label: "Siding Services", href: "/siding-services" },
+        { label: "Window Services", href: "/window-services" }
+      ]
+    },
+    { label: "Projects", href: "/projects" },
+    { label: "Blog", href: "/blog" },
+    { label: "Locations", href: "/locations" },
+    { label: "Contact", href: "/contact" }
   ];
 
   useEffect(() => {
@@ -23,30 +35,54 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleGetQuote = () => {
+    if (window.location.pathname === '/') {
+      // If on home page, scroll to contact section
+      const element = document.querySelector('#contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other pages, navigate to home page contact section
+      window.location.href = '/#contact';
     }
     setIsMenuOpen(false);
   };
 
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      // Handle anchor links for home page sections
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Handle page navigation
+      window.location.href = href;
+    }
+    setIsMenuOpen(false);
+  };
+
+  const isHomePage = window.location.pathname === '/';
+  
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled 
-        ? 'bg-background/98 backdrop-blur-xl shadow-lg border-b border-border/50' 
-        : 'bg-transparent'
+      isHomePage 
+        ? (scrolled 
+          ? 'bg-background/98 backdrop-blur-xl shadow-lg border-b border-border/50' 
+          : 'bg-transparent')
+        : 'bg-background/98 backdrop-blur-xl shadow-lg border-b border-border/50'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-500 ${
-          scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
+          isHomePage ? (scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20') : 'h-14 sm:h-16'
         }`}>
           {/* Logo */}
           <div className="transform transition-all duration-300 hover:scale-105">
             <CustomLogo 
               size="sm" 
               animated={true} 
-              variant={scrolled ? "dark" : "light"}
+              variant={isHomePage ? (scrolled ? "dark" : "light") : "dark"}
             />
           </div>
 
@@ -55,9 +91,9 @@ export default function Navigation() {
             {navItems.map((item, index) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item.href)}
                 className={`relative px-3 xl:px-4 py-2 text-xs xl:text-sm font-semibold tracking-wide uppercase transition-all duration-300 group min-h-[44px] flex items-center ${
-                  scrolled ? 'text-foreground' : 'text-white'
+                  isHomePage ? (scrolled ? 'text-foreground' : 'text-white') : 'text-foreground'
                 } hover:text-primary`}
                 data-testid={`nav-${item.label.toLowerCase()}`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -74,7 +110,7 @@ export default function Navigation() {
               variant="ghost" 
               size="sm" 
               className={`font-semibold transition-all duration-300 hover:scale-105 text-xs xl:text-sm min-h-[44px] px-3 xl:px-4 ${
-                scrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary'
+                isHomePage ? (scrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary') : 'text-foreground hover:text-primary'
               }`}
               data-testid="button-call"
             >
@@ -84,6 +120,7 @@ export default function Navigation() {
             </Button>
             <Button 
               size="sm" 
+              onClick={handleGetQuote}
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-4 xl:px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-xs xl:text-sm min-h-[44px]"
               data-testid="button-quote"
             >
@@ -98,7 +135,7 @@ export default function Navigation() {
             variant="ghost"
             size="icon"
             className={`lg:hidden transition-all duration-300 hover:scale-110 min-w-[48px] min-h-[48px] ${
-              scrolled ? 'text-foreground' : 'text-white'
+              isHomePage ? (scrolled ? 'text-foreground' : 'text-white') : 'text-foreground'
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             data-testid="button-menu-toggle"
@@ -111,36 +148,66 @@ export default function Navigation() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden absolute top-full left-0 right-0 transition-all duration-500 overflow-hidden z-50 ${
+        {/* Enhanced Mobile Menu */}
+        <div className={`lg:hidden fixed inset-0 z-[9999] transition-all duration-500 ${
           isMenuOpen 
-            ? 'max-h-screen opacity-100 transform translate-y-0' 
-            : 'max-h-0 opacity-0 transform -translate-y-4'
+            ? 'opacity-100 visible' 
+            : 'opacity-0 invisible'
         }`}>
-          <div className="bg-background/98 backdrop-blur-xl border-b border-border/50 shadow-2xl">
-            <div className="px-4 sm:px-6 py-6 sm:py-8 space-y-4 sm:space-y-6">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <div className={`absolute top-0 right-0 h-full w-full max-w-sm bg-background/98 backdrop-blur-xl border-l border-border/50 shadow-2xl transform transition-all duration-500 ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}>
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border/30">
+              <div className="flex items-center space-x-3">
+                <CustomLogo size="sm" variant="dark" />
+                <div className="bg-primary/10 px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold text-primary">#1 CONSTRUCTION COMPANY</span>
+                </div>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110 min-w-[48px] min-h-[48px]"
+              >
+                <X className="w-6 h-6" />
+              </Button>
+            </div>
+
+            {/* Navigation Items */}
+            <div className="px-4 sm:px-6 py-6 space-y-2">
               {navItems.map((item, index) => (
                 <button
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-base sm:text-lg font-semibold text-foreground hover:text-primary transition-all duration-300 py-4 sm:py-3 border-b border-border/30 last:border-b-0 hover:translate-x-2 min-h-[48px] flex items-center"
+                  onClick={() => handleNavigation(item.href)}
+                  className="block w-full text-left text-lg font-semibold text-foreground hover:text-primary transition-all duration-300 py-4 px-4 rounded-lg hover:bg-primary/5 hover:translate-x-2 min-h-[56px] flex items-center justify-between group"
                   data-testid={`mobile-nav-${item.label.toLowerCase()}`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
                 </button>
               ))}
-              <div className="pt-4 sm:pt-6 space-y-3 sm:space-y-4">
+            </div>
+
+            {/* Contact Section */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 border-t border-border/30 bg-background/95">
+              <div className="space-y-4">
+                <div className="flex items-center justify-center p-4 bg-primary/5 rounded-lg border border-primary/20">
+                  <Phone className="w-5 h-5 text-primary mr-3" />
+                  <span className="text-lg font-semibold text-foreground">(555) 123-4567</span>
+                </div>
                 <Button 
-                  variant="outline" 
-                  className="w-full h-14 sm:h-12 text-base sm:text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 min-h-[56px]" 
-                  data-testid="mobile-button-call"
-                >
-                  <Phone className="w-5 h-5 mr-3" />
-                  (555) 123-4567
-                </Button>
-                <Button 
-                  className="w-full h-14 sm:h-12 text-base sm:text-lg font-semibold bg-primary hover:bg-primary/90 rounded-full hover:scale-105 transition-all duration-300 group min-h-[56px]" 
+                  onClick={handleGetQuote}
+                  className="w-full h-14 text-lg font-bold bg-primary hover:bg-primary/90 rounded-xl hover:scale-105 transition-all duration-300 group shadow-lg" 
                   data-testid="mobile-button-quote"
                 >
                   Get Free Quote

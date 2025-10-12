@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { ArrowDown, Hammer, Shield, Star, Play, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage1 from "@assets/stock_images/modern_construction__73d5bb72.jpg";
-import heroImage2 from "@assets/stock_images/luxury_modern_buildi_4a2612ff.jpg";
-import heroImage3 from "@assets/stock_images/professional_constru_4979b818.jpg";
-import heroImage4 from "@assets/stock_images/modern_construction__b326e3db.jpg";
-import heroImage5 from "@assets/stock_images/luxury_modern_buildi_c655d0f3.jpg";
+// Professional HD construction images from Unsplash
+const heroImage1 = "https://images.unsplash.com/photo-1590725140246-20acdee442be?w=1920&h=1080&fit=crop&q=90";
+const heroImage2 = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&h=1080&fit=crop&q=90";
+const heroImage3 = "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop&q=90";
+const heroImage4 = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop&q=90";
+const heroImage5 = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&q=90";
 
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   
   const heroImages = [
-    { src: heroImage1, alt: "Modern Construction Site" },
-    { src: heroImage2, alt: "Luxury Building Architecture" },
-    { src: heroImage3, alt: "Professional Construction Workers" },
-    { src: heroImage4, alt: "Construction Cranes and Equipment" },
-    { src: heroImage5, alt: "Modern Building Development" }
+    { src: heroImage1, alt: "Professional Construction Site with Cranes" },
+    { src: heroImage2, alt: "Modern Building Construction" },
+    { src: heroImage3, alt: "Construction Workers on Site" },
+    { src: heroImage4, alt: "Commercial Construction Project" },
+    { src: heroImage5, alt: "Luxury Home Construction" }
   ];
   
   useEffect(() => {
@@ -94,10 +95,10 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Enhanced Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
-          {/* Animated Badge */}
+      {/* Enhanced Content - Advanced Mobile Optimization */}
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center pb-16 sm:pb-20 md:pb-24">
+        <div className="max-w-4xl lg:max-w-5xl mx-auto">
+          {/* Animated Badge - Moved here above main headlines */}
           <div className={`inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30 mb-6 sm:mb-8 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -105,15 +106,17 @@ export default function HeroSection() {
             <span className="text-white font-semibold tracking-wide text-sm sm:text-base">#1 CONSTRUCTION COMPANY</span>
           </div>
           
-          {/* Main Headlines with Staggered Animation */}
-          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight transition-all duration-1000 delay-300 ${
+          {/* Main Headlines with Advanced Mobile Responsiveness */}
+          <h1 className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 md:mb-8 leading-tight transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}>
-            <span className="block">THE MODERN</span>
-            <span className="block bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+            <span className="block tracking-tight">THE MODERN</span>
+            <span className="block bg-gradient-to-r from-primary via-purple-400 to-blue-400 bg-clip-text text-transparent leading-tight">
               CONSTRUCTION
             </span>
-            <span className="block text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl">& INDUSTRIAL AGENCY</span>
+            <span className="block text-white/90 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-tight mt-2">
+              & INDUSTRIAL AGENCY
+            </span>
           </h1>
           
           <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white/90 mb-6 sm:mb-8 transition-all duration-1000 delay-500 ${
@@ -156,7 +159,7 @@ export default function HeroSection() {
           </div>
           
           {/* Stats Row */}
-          <div className={`mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 transition-all duration-1000 delay-1100 px-4 sm:px-0 ${
+          <div className={`mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 transition-all duration-1000 delay-1100 px-4 sm:px-0 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="text-center">
@@ -175,7 +178,7 @@ export default function HeroSection() {
         </div>
 
         {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-20">
           <button 
             onClick={scrollToServices}
             className={`flex flex-col items-center text-white/60 hover:text-white transition-all duration-500 group min-h-[48px] min-w-[48px] ${
@@ -184,9 +187,9 @@ export default function HeroSection() {
             data-testid="button-scroll-down"
             style={{ animationDelay: '1300ms' }}
           >
-            <span className="text-xs sm:text-sm font-bold mb-2 sm:mb-3 tracking-wider">DISCOVER MORE</span>
-            <div className="w-6 sm:w-8 h-10 sm:h-12 border-2 border-white/40 rounded-full flex justify-center">
-              <ArrowDown className="w-3 sm:w-4 h-3 sm:h-4 animate-bounce text-white/60 group-hover:text-primary transition-all duration-300 mt-1 sm:mt-2" />
+            <span className="text-xs sm:text-sm font-bold mb-1 sm:mb-2 tracking-wider">DISCOVER MORE</span>
+            <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-white/40 rounded-full flex justify-center">
+              <ArrowDown className="w-2 sm:w-3 h-2 sm:h-3 animate-bounce text-white/60 group-hover:text-primary transition-all duration-300 mt-1" />
             </div>
           </button>
         </div>
