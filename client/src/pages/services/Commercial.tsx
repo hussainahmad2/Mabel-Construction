@@ -237,6 +237,96 @@ export default function Commercial() {
         </div>
       </section>
 
+      {/* Recent Projects */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+              Recent Commercial Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Explore our latest commercial construction projects that demonstrate our expertise in creating functional and attractive business spaces.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Project 1 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
+                alt="Office Building Renovation"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground">Bloomington Office Complex</h3>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground mb-4">Complete renovation of a 20,000 sq ft office building with modern amenities, energy-efficient systems, and contemporary design. Includes new HVAC, electrical, and flooring throughout.</p>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                  <div>
+                    <p><strong>Location:</strong> Bloomington</p>
+                    <p><strong>Size:</strong> 20,000 sq ft</p>
+                  </div>
+                  <div>
+                    <p><strong>Duration:</strong> 4 months</p>
+                    <p><strong>Budget:</strong> $1.2M</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Modern Amenities</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Energy Efficient</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">New HVAC</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Contemporary Design</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+                alt="Retail Space Construction"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground">Richfield Shopping Center</h3>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground mb-4">Complete modernization of retail space with open floor plan, modern fixtures, and improved customer flow. Features new flooring, lighting, and display areas for enhanced shopping experience.</p>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                  <div>
+                    <p><strong>Location:</strong> Richfield</p>
+                    <p><strong>Size:</strong> 8,500 sq ft</p>
+                  </div>
+                  <div>
+                    <p><strong>Expected:</strong> 6 weeks</p>
+                    <p><strong>Budget:</strong> $450K</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Open Floor Plan</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Modern Fixtures</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Improved Flow</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">New Flooring</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
       <section className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

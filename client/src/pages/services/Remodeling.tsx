@@ -259,6 +259,96 @@ export default function Remodeling() {
         </div>
       </section>
 
+      {/* Recent Projects */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+              Recent Remodeling Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Discover our latest remodeling transformations that showcase our design expertise and quality craftsmanship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Project 1 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop"
+                alt="Luxury Kitchen Remodel"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground">Edina Luxury Kitchen</h3>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground mb-4">Complete kitchen transformation featuring custom cabinetry, quartz countertops, premium appliances, and modern lighting design. This 350 sq ft space now serves as the heart of the home.</p>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                  <div>
+                    <p><strong>Location:</strong> Edina</p>
+                    <p><strong>Size:</strong> 350 sq ft</p>
+                  </div>
+                  <div>
+                    <p><strong>Duration:</strong> 6 weeks</p>
+                    <p><strong>Budget:</strong> $85K</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Custom Cabinetry</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Quartz Countertops</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Premium Appliances</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Modern Lighting</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                alt="Master Bathroom Renovation"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-foreground">Wayzata Master Bathroom</h3>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground mb-4">Spa-inspired master bathroom renovation with walk-in shower, freestanding tub, custom vanity, and heated floors. Creating a luxurious retreat for relaxation.</p>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                  <div>
+                    <p><strong>Location:</strong> Wayzata</p>
+                    <p><strong>Size:</strong> 180 sq ft</p>
+                  </div>
+                  <div>
+                    <p><strong>Expected:</strong> 4 weeks</p>
+                    <p><strong>Budget:</strong> $65K</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Walk-in Shower</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Freestanding Tub</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Heated Floors</span>
+                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">Smart Mirrors</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
       <section className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

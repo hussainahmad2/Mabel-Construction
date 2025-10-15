@@ -188,11 +188,197 @@ export default function Projects() {
       budget: "$500K",
       features: ["Smart Home", "Panoramic Views", "Modern Finishes", "Penthouse Design"],
       status: "Completed"
+    },
+    // Remodelling Projects
+    {
+      id: 14,
+      title: "Luxury Kitchen Remodel",
+      category: "Remodeling",
+      location: "Edina",
+      description: "Complete kitchen transformation featuring custom cabinetry, quartz countertops, and premium appliances. This modern design maximizes space and functionality while maintaining elegant aesthetics.",
+      imageUrl: "/assets/Remodelling/6.jpg",
+      completionDate: "December 2023",
+      size: "350 sq ft",
+      budget: "$85K",
+      features: ["Custom Cabinetry", "Quartz Countertops", "Premium Appliances", "Modern Design"],
+      status: "Completed"
+    },
+    {
+      id: 15,
+      title: "Master Bathroom Renovation",
+      category: "Remodeling",
+      location: "Wayzata",
+      description: "Spa-inspired master bathroom renovation with walk-in shower, freestanding tub, and custom vanity. Features heated floors and smart mirrors for ultimate luxury.",
+      imageUrl: "/assets/Remodelling/7.jpg",
+      completionDate: "November 2023",
+      size: "180 sq ft",
+      budget: "$65K",
+      features: ["Walk-in Shower", "Freestanding Tub", "Heated Floors", "Smart Mirrors"],
+      status: "Completed"
+    },
+    {
+      id: 16,
+      title: "Basement Finishing Project",
+      category: "Remodeling",
+      location: "Plymouth",
+      description: "Complete basement transformation into a family entertainment area with home theater, wet bar, and game room. Includes proper insulation and egress windows.",
+      imageUrl: "/assets/Remodelling/8.jpg",
+      completionDate: "October 2023",
+      size: "1,200 sq ft",
+      budget: "$95K",
+      features: ["Home Theater", "Wet Bar", "Game Room", "Egress Windows"],
+      status: "Completed"
+    },
+    {
+      id: 17,
+      title: "Living Room Modernization",
+      category: "Remodeling",
+      location: "Minnetonka",
+      description: "Contemporary living room makeover with open concept design, built-in entertainment center, and custom lighting. Features hardwood floors and modern fireplace.",
+      imageUrl: "/assets/Remodelling/9.jpg",
+      completionDate: "September 2023",
+      size: "400 sq ft",
+      budget: "$45K",
+      features: ["Open Concept", "Built-in Entertainment", "Custom Lighting", "Hardwood Floors"],
+      status: "Completed"
+    },
+    {
+      id: 18,
+      title: "Home Office Conversion",
+      category: "Remodeling",
+      location: "St. Louis Park",
+      description: "Converted spare bedroom into a professional home office with custom built-in desk, storage solutions, and soundproofing. Perfect for remote work.",
+      imageUrl: "/assets/Remodelling/10.jpg",
+      completionDate: "August 2023",
+      size: "120 sq ft",
+      budget: "$25K",
+      features: ["Custom Built-in Desk", "Storage Solutions", "Soundproofing", "Professional Setup"],
+      status: "Completed"
+    },
+    {
+      id: 19,
+      title: "Laundry Room Upgrade",
+      category: "Remodeling",
+      location: "Maple Grove",
+      description: "Complete laundry room renovation with custom cabinets, utility sink, and folding station. Includes new flooring and improved lighting for better functionality.",
+      imageUrl: "/assets/Remodelling/11.jpg",
+      completionDate: "July 2023",
+      size: "80 sq ft",
+      budget: "$18K",
+      features: ["Custom Cabinets", "Utility Sink", "Folding Station", "Improved Lighting"],
+      status: "Completed"
+    },
+    {
+      id: 20,
+      title: "Guest Bedroom Makeover",
+      category: "Remodeling",
+      location: "Coon Rapids",
+      description: "Elegant guest bedroom renovation with new flooring, custom closet system, and updated lighting. Features neutral colors and modern fixtures.",
+      imageUrl: "/assets/Remodelling/12.jpg",
+      completionDate: "June 2023",
+      size: "140 sq ft",
+      budget: "$22K",
+      features: ["New Flooring", "Custom Closet", "Updated Lighting", "Modern Fixtures"],
+      status: "Completed"
+    },
+    // Commercial Projects
+    {
+      id: 21,
+      title: "Office Building Renovation",
+      category: "Commercial",
+      location: "Bloomington",
+      description: "Complete renovation of a 20,000 sq ft office building with modern amenities, energy-efficient systems, and contemporary design. Includes new HVAC and electrical systems.",
+      imageUrl: "/assets/Commercial/13.jpg",
+      completionDate: "May 2023",
+      size: "20,000 sq ft",
+      budget: "$1.2M",
+      features: ["Modern Amenities", "Energy Efficient", "New HVAC", "Contemporary Design"],
+      status: "Completed"
+    },
+    {
+      id: 22,
+      title: "Retail Space Modernization",
+      category: "Commercial",
+      location: "Richfield",
+      description: "Complete modernization of retail space with open floor plan, modern fixtures, and improved customer flow. Features new flooring, lighting, and display areas.",
+      imageUrl: "/assets/Commercial/14.jpg",
+      completionDate: "April 2023",
+      size: "8,500 sq ft",
+      budget: "$450K",
+      features: ["Open Floor Plan", "Modern Fixtures", "Improved Flow", "New Flooring"],
+      status: "Completed"
+    },
+    {
+      id: 23,
+      title: "Restaurant Interior Design",
+      category: "Commercial",
+      location: "Uptown Minneapolis",
+      description: "Complete interior renovation of upscale restaurant with custom bar, dining areas, and kitchen upgrades. Features unique lighting and modern decor.",
+      imageUrl: "/assets/Commercial/15.jpg",
+      completionDate: "March 2023",
+      size: "3,200 sq ft",
+      budget: "$280K",
+      features: ["Custom Bar", "Dining Areas", "Kitchen Upgrades", "Unique Lighting"],
+      status: "Completed"
+    },
+    // Sliding Projects
+    {
+      id: 24,
+      title: "Patio Door Installation",
+      category: "Sliding",
+      location: "Eden Prairie",
+      description: "Installation of premium sliding patio doors with energy-efficient glass and smooth operation. Features weatherproofing and security locks.",
+      imageUrl: "/assets/Sliding/16.jpg",
+      completionDate: "February 2023",
+      size: "8 ft opening",
+      budget: "$3,500",
+      features: ["Energy Efficient Glass", "Smooth Operation", "Weatherproofing", "Security Locks"],
+      status: "Completed"
+    },
+    {
+      id: 25,
+      title: "Closet Door Replacement",
+      category: "Sliding",
+      location: "Shoreview",
+      description: "Custom sliding closet doors with mirrored panels and soft-close mechanisms. Maximizes space and adds modern functionality to bedroom.",
+      imageUrl: "/assets/Sliding/17.jpg",
+      completionDate: "January 2023",
+      size: "6 ft opening",
+      budget: "$1,800",
+      features: ["Mirrored Panels", "Soft-Close", "Space Maximizing", "Modern Design"],
+      status: "Completed"
+    },
+    {
+      id: 26,
+      title: "Barn Door Installation",
+      category: "Sliding",
+      location: "White Bear Lake",
+      description: "Rustic barn door installation for home office with custom hardware and track system. Adds character and functionality to the space.",
+      imageUrl: "/assets/Sliding/18.jpg",
+      completionDate: "December 2022",
+      size: "7 ft opening",
+      budget: "$2,200",
+      features: ["Custom Hardware", "Track System", "Rustic Design", "Space Saving"],
+      status: "Completed"
+    },
+    // Windows Projects
+    {
+      id: 27,
+      title: "Bay Window Installation",
+      category: "Windows",
+      location: "Stillwater",
+      description: "Custom bay window installation with energy-efficient triple-pane glass and custom trim work. Creates additional seating area and natural light.",
+      imageUrl: "/assets/Windows/19.jpg",
+      completionDate: "November 2022",
+      size: "6 ft wide",
+      budget: "$4,200",
+      features: ["Triple-Pane Glass", "Custom Trim", "Additional Seating", "Natural Light"],
+      status: "Completed"
     }
   ];
 
-  const categories = ["All", "Roofing", "Residential", "Commercial", "Remodeling"];
-  const locations = ["All", "Minneapolis", "St. Paul", "Maple Grove", "Plymouth", "Rogers", "Coon Rapids", "Anoka"];
+  const categories = ["All", "Roofing", "Residential", "Commercial", "Remodeling", "Sliding", "Windows"];
+  const locations = ["All", "Minneapolis", "St. Paul", "Maple Grove", "Plymouth", "Rogers", "Coon Rapids", "Anoka", "Edina", "Wayzata", "Minnetonka", "St. Louis Park", "Bloomington", "Richfield", "Uptown Minneapolis", "Eden Prairie", "Shoreview", "White Bear Lake", "Stillwater"];
 
   const filteredProjects = projects.filter(project => {
     const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;

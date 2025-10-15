@@ -238,6 +238,137 @@ export default function Windows() {
         </div>
       </section>
 
+      {/* Recent Projects */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+              Recent Window Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Explore our latest window installation and replacement projects that showcase our expertise and quality craftsmanship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Project 1 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                alt="Bay Window Installation"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Eden Prairie Bay Window</h3>
+                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Custom bay window installation with energy-efficient triple-pane glass and built-in seating area.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Eden Prairie</p>
+                  <p><strong>Type:</strong> Bay Window</p>
+                  <p><strong>Duration:</strong> 3 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
+                alt="Skylight Installation"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Minneapolis Skylights</h3>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Multiple skylight installation project bringing natural light to a dark interior space with remote-controlled ventilation.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Minneapolis</p>
+                  <p><strong>Type:</strong> 4 Skylights</p>
+                  <p><strong>Expected:</strong> 4 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
+                alt="Window Replacement"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">St. Paul Window Replacement</h3>
+                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Complete window replacement for a historic home with period-appropriate casement windows and custom trim work.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> St. Paul</p>
+                  <p><strong>Type:</strong> 12 Casement Windows</p>
+                  <p><strong>Duration:</strong> 6 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+                alt="Commercial Windows"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Maple Grove Office Windows</h3>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Commercial window installation for office building with energy-efficient glass and modern architectural design.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Maple Grove</p>
+                  <p><strong>Type:</strong> 20 Commercial Windows</p>
+                  <p><strong>Expected:</strong> 8 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 5 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop"
+                alt="Picture Window"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Plymouth Picture Window</h3>
+                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Large picture window installation with panoramic views and energy-efficient glass for maximum natural light.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Plymouth</p>
+                  <p><strong>Type:</strong> 8ft Picture Window</p>
+                  <p><strong>Duration:</strong> 2 days</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
       <section className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

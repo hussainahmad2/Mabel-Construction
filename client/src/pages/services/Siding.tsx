@@ -53,6 +53,27 @@ export default function Siding() {
       features: ["Damage Assessment", "Color Matching", "Weather Sealing", "Maintenance", "Warranty"],
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
       startingPrice: "From $5/sq ft"
+    },
+    {
+      title: "Sliding Patio Doors",
+      description: "Premium sliding patio doors with energy-efficient glass and smooth operation.",
+      features: ["Energy Efficient Glass", "Smooth Operation", "Weatherproofing", "Security Locks", "Custom Sizing"],
+      image: "/assets/Sliding/16.jpg",
+      startingPrice: "From $1,500"
+    },
+    {
+      title: "Sliding Closet Doors",
+      description: "Custom sliding closet doors with mirrored panels and soft-close mechanisms.",
+      features: ["Mirrored Panels", "Soft-Close", "Space Maximizing", "Modern Design", "Custom Hardware"],
+      image: "/assets/Sliding/17.jpg",
+      startingPrice: "From $800"
+    },
+    {
+      title: "Barn Doors",
+      description: "Rustic barn door installation with custom hardware and track systems.",
+      features: ["Custom Hardware", "Track System", "Rustic Design", "Space Saving", "Unique Style"],
+      image: "/assets/Sliding/18.jpg",
+      startingPrice: "From $1,200"
     }
   ];
 
@@ -80,12 +101,12 @@ export default function Siding() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
-              SIDING
+              SIDING & SLIDING
               <span className="block text-primary">SERVICES</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Protect and beautify your property with our expert siding installation and repair services. 
-              From vinyl to stone veneer, we offer quality siding solutions for every style and budget.
+              Protect and beautify your property with our expert siding installation and sliding door services. 
+              From vinyl siding to custom sliding doors, we offer quality solutions for every style and budget.
             </p>
           </div>
         </div>
@@ -96,10 +117,10 @@ export default function Siding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
-              Complete Siding Solutions
+              Complete Siding & Sliding Solutions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From installation to repair, we provide comprehensive siding services to protect and enhance your property.
+              From siding installation to sliding door services, we provide comprehensive solutions to protect and enhance your property.
             </p>
           </div>
 
@@ -233,6 +254,114 @@ export default function Siding() {
                 alt="Beautiful Home Siding"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Projects */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+              Recent Siding Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              See our latest siding and sliding door installations that showcase our quality workmanship and attention to detail.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Project 1 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
+                alt="Vinyl Siding Installation"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Minneapolis Home Siding</h3>
+                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Complete vinyl siding replacement for a 2,500 sq ft home with energy-efficient insulation and custom trim work.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Minneapolis</p>
+                  <p><strong>Size:</strong> 2,500 sq ft</p>
+                  <p><strong>Duration:</strong> 5 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
+                alt="Fiber Cement Siding Project"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">St. Paul Luxury Siding</h3>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Premium fiber cement siding installation with stone veneer accents and custom color matching for a modern aesthetic.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> St. Paul</p>
+                  <p><strong>Size:</strong> 3,200 sq ft</p>
+                  <p><strong>Expected:</strong> 8 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - Completed */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                alt="Sliding Door Installation"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Maple Grove Patio Doors</h3>
+                  <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">Completed</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Custom sliding patio door installation with energy-efficient glass and weatherproofing for year-round comfort.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Maple Grove</p>
+                  <p><strong>Type:</strong> 8ft Sliding Doors</p>
+                  <p><strong>Duration:</strong> 2 days</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - Under Construction */}
+            <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <img
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+                alt="Commercial Siding Project"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-bold text-foreground">Plymouth Office Building</h3>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Under Construction</span>
+                </div>
+                <p className="text-muted-foreground text-sm mb-3">Commercial metal siding installation with modern architectural panels and integrated ventilation systems.</p>
+                <div className="text-sm text-muted-foreground">
+                  <p><strong>Location:</strong> Plymouth</p>
+                  <p><strong>Size:</strong> 15,000 sq ft</p>
+                  <p><strong>Expected:</strong> 12 days</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
