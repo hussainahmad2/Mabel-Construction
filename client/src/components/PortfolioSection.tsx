@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   // Real project data including roofing projects
   const projects = [
@@ -533,28 +535,46 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 lg:py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className={`${
+      isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+    } bg-background`}>
+      <div className="container-responsive">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-6">
+        <div className={`text-center ${
+          isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+        }`}>
+          <h2 className={`${
+            isMobile ? 'text-2xl' : isTablet ? 'text-3xl md:text-4xl' : 'text-5xl'
+          } font-black text-foreground ${
+            isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-8'
+          }`}>
             OUR
             <span className="block text-primary">PORTFOLIO</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className={`${
+            isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+          } text-muted-foreground max-w-3xl mx-auto leading-relaxed ${
+            isMobile ? 'px-4' : 'px-0'
+          }`}>
             Explore our showcase of exceptional construction projects that demonstrate our commitment to quality, 
             innovation, and client satisfaction.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 px-4 sm:px-0">
+        <div className={`flex flex-wrap justify-center ${
+          isMobile ? 'gap-2' : isTablet ? 'gap-3' : 'gap-4'
+        } ${
+          isMobile ? 'mb-6' : isTablet ? 'mb-8' : 'mb-12'
+        } ${isMobile ? 'px-4' : 'px-0'}`}>
           {categories.map((category) => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "outline"}
               onClick={() => setSelectedCategory(category)}
-              className="px-4 sm:px-6 py-2 hover-elevate active-elevate-2 text-sm sm:text-base min-h-[44px]"
+              className={`${
+                isMobile ? 'text-xs px-3 py-2' : isTablet ? 'text-sm px-4 py-2' : 'text-base px-6 py-3'
+              } hover-elevate active-elevate-2 touch-target`}
               data-testid={`filter-${category.toLowerCase()}`}
             >
               {category}
@@ -563,7 +583,11 @@ export default function PortfolioSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className={`grid ${
+          isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+        } ${
+          isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-8'
+        }`}>
           {filteredProjects.map((project, index) => (
             <div
               key={`${project.title}-${selectedCategory}`}

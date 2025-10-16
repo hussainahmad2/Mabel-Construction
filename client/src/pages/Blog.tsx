@@ -3,11 +3,13 @@ import { Calendar, User, ArrowRight, Search, Tag, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Blog() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -108,16 +110,26 @@ export default function Blog() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               CONSTRUCTION
               <span className="block text-primary">BLOG</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Stay informed with the latest construction trends, tips, and insights from our expert team. 
               Your go-to resource for all things construction and home improvement.
             </p>
@@ -126,28 +138,58 @@ export default function Blog() {
       </section>
 
       {/* Search and Filters */}
-      <section className="py-12 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+      <section className={`${
+        isMobile ? 'py-8' : isTablet ? 'py-10' : 'py-12'
+      } bg-secondary/30`}>
+        <div className="container-responsive">
+          <div className={`flex ${
+            isMobile ? 'flex-col' : isTablet ? 'flex-col' : 'flex-row'
+          } ${
+            isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-6'
+          } items-center justify-between`}>
             {/* Search */}
-            <div className="relative w-full lg:w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+            <div className={`relative ${
+              isMobile ? 'w-full' : isTablet ? 'w-full' : 'w-96'
+            }`}>
+              <Search className={`absolute ${
+                isMobile ? 'left-3' : 'left-3'
+              } top-1/2 transform -translate-y-1/2 text-muted-foreground ${
+                isMobile ? 'w-4 h-4' : 'w-5 h-5'
+              }`} />
               <input
                 type="text"
                 placeholder="Search blog posts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className={`w-full ${
+                  isMobile ? 'pl-9' : 'pl-10'
+                } pr-4 ${
+                  isMobile ? 'py-3' : 'py-3'
+                } border border-border ${
+                  isMobile ? 'rounded-lg' : 'rounded-lg'
+                } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
+                  isMobile ? 'text-sm' : 'text-base'
+                }`}
               />
             </div>
 
             {/* Category Filter */}
-            <div className="flex items-center gap-2">
-              <Tag className="w-5 h-5 text-muted-foreground" />
+            <div className={`flex items-center ${
+              isMobile ? 'gap-2' : 'gap-2'
+            }`}>
+              <Tag className={`${
+                isMobile ? 'w-4 h-4' : 'w-5 h-5'
+              } text-muted-foreground`} />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className={`${
+                  isMobile ? 'px-3 py-2' : 'px-4 py-2'
+                } border border-border ${
+                  isMobile ? 'rounded-lg' : 'rounded-lg'
+                } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
+                  isMobile ? 'text-sm' : 'text-base'
+                }`}
               >
                 {categories.map(category => (
                   <option key={category} value={category}>{category}</option>

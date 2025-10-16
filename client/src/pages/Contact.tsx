@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -57,16 +59,26 @@ export default function Contact() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               CONTACT
               <span className="block text-primary">US TODAY</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Ready to start your construction project? Get in touch with our expert team for a free consultation 
               and personalized quote. We're here to help bring your vision to life.
             </p>
@@ -75,9 +87,15 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-14' : 'py-16'
+      } bg-secondary/30`}>
+        <div className="container-responsive">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-4'
+          } ${
+            isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-6'
+          }`}>
             {contactInfo.map((info, index) => (
               <div
                 key={index}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProjectModal from "@/components/ProjectModal";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +13,7 @@ export default function Projects() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -578,18 +580,28 @@ export default function Projects() {
       <Navigation />
       
       {/* Advanced Mobile-Optimized Hero Section */}
-      <section className="relative py-12 mobile-sm:py-16 mobile-md:py-20 sm:py-24 md:py-28 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-3 mobile-sm:px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-3xl mobile-sm:text-4xl mobile-md:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-foreground mb-4 mobile-sm:mb-6 sm:mb-8 leading-tight">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl lg:text-7xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-8'
+            } leading-tight`}>
               OUR
               <span className="block text-primary bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 PROJECTS
               </span>
             </h1>
-            <p className="text-base mobile-sm:text-lg mobile-md:text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base md:text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Explore our portfolio of exceptional construction projects that showcase our commitment to quality, 
               innovation, and client satisfaction across the Twin Cities.
             </p>
@@ -598,30 +610,70 @@ export default function Projects() {
       </section>
 
       {/* Advanced Mobile-Optimized Filters Section */}
-      <section className="py-8 mobile-sm:py-10 mobile-md:py-12 sm:py-14 md:py-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-3 mobile-sm:px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col mobile-lg:flex-row gap-4 mobile-sm:gap-6 items-stretch mobile-lg:items-center justify-between">
+      <section className={`${
+        isMobile ? 'py-8' : isTablet ? 'py-10' : 'py-12'
+      } bg-secondary/30`}>
+        <div className="container-responsive">
+          <div className={`flex ${
+            isMobile ? 'flex-col' : 'flex-row'
+          } ${
+            isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-8'
+          } items-stretch ${
+            isMobile ? 'items-stretch' : 'items-center'
+          } justify-between`}>
             {/* Advanced Mobile Search */}
-            <div className="relative w-full mobile-lg:w-80 lg:w-96">
-              <Search className="absolute left-3 mobile-sm:left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 mobile-sm:w-5 h-4 mobile-sm:h-5" />
+            <div className={`relative ${
+              isMobile ? 'w-full' : isTablet ? 'w-80' : 'w-96'
+            }`}>
+              <Search className={`absolute ${
+                isMobile ? 'left-3' : 'left-4'
+              } top-1/2 transform -translate-y-1/2 text-muted-foreground ${
+                isMobile ? 'w-4 h-4' : 'w-5 h-5'
+              }`} />
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 mobile-sm:pl-10 pr-4 py-3 mobile-sm:py-4 text-sm mobile-sm:text-base border-2 border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-background/50 backdrop-blur-sm"
+                className={`w-full ${
+                  isMobile ? 'pl-9' : 'pl-10'
+                } pr-4 ${
+                  isMobile ? 'py-3' : 'py-4'
+                } ${
+                  isMobile ? 'text-sm' : 'text-base'
+                } border-2 border-border ${
+                  isMobile ? 'rounded-lg' : 'rounded-xl'
+                } focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-background/50 backdrop-blur-sm`}
               />
             </div>
 
             {/* Advanced Mobile Filters */}
-            <div className="flex flex-col mobile-sm:flex-row gap-3 mobile-sm:gap-4 w-full mobile-lg:w-auto">
+            <div className={`flex ${
+              isMobile ? 'flex-col' : 'flex-row'
+            } ${
+              isMobile ? 'gap-3' : isTablet ? 'gap-4' : 'gap-4'
+            } ${
+              isMobile ? 'w-full' : 'w-auto'
+            }`}>
               {/* Category Filter */}
-              <div className="flex items-center gap-2 mobile-sm:gap-3">
-                <Filter className="w-4 mobile-sm:w-5 h-4 mobile-sm:h-5 text-muted-foreground flex-shrink-0" />
+              <div className={`flex items-center ${
+                isMobile ? 'gap-2' : 'gap-3'
+              }`}>
+                <Filter className={`${
+                  isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                } text-muted-foreground flex-shrink-0`} />
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="flex-1 mobile-sm:min-w-[140px] px-3 mobile-sm:px-4 py-3 mobile-sm:py-4 text-sm mobile-sm:text-base border-2 border-border rounded-xl bg-background/50 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
+                  className={`flex-1 ${
+                    isMobile ? 'min-w-[120px]' : 'min-w-[140px]'
+                  } ${
+                    isMobile ? 'px-3 py-3' : 'px-4 py-4'
+                  } ${
+                    isMobile ? 'text-sm' : 'text-base'
+                  } border-2 border-border ${
+                    isMobile ? 'rounded-lg' : 'rounded-xl'
+                  } bg-background/50 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300`}
                 >
                   {categories.map(category => (
                     <option key={category} value={category}>{category}</option>
@@ -630,12 +682,24 @@ export default function Projects() {
               </div>
 
               {/* Location Filter */}
-              <div className="flex items-center gap-2 mobile-sm:gap-3">
-                <MapPin className="w-4 mobile-sm:w-5 h-4 mobile-sm:h-5 text-muted-foreground flex-shrink-0" />
+              <div className={`flex items-center ${
+                isMobile ? 'gap-2' : 'gap-3'
+              }`}>
+                <MapPin className={`${
+                  isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                } text-muted-foreground flex-shrink-0`} />
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="flex-1 mobile-sm:min-w-[140px] px-3 mobile-sm:px-4 py-3 mobile-sm:py-4 text-sm mobile-sm:text-base border-2 border-border rounded-xl bg-background/50 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
+                  className={`flex-1 ${
+                    isMobile ? 'min-w-[120px]' : 'min-w-[140px]'
+                  } ${
+                    isMobile ? 'px-3 py-3' : 'px-4 py-4'
+                  } ${
+                    isMobile ? 'text-sm' : 'text-base'
+                  } border-2 border-border ${
+                    isMobile ? 'rounded-lg' : 'rounded-xl'
+                  } bg-background/50 backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300`}
                 >
                   {locations.map(location => (
                     <option key={location} value={location}>{location}</option>
@@ -659,7 +723,11 @@ export default function Projects() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 mobile-sm:grid-cols-1 mobile-md:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mobile-sm:gap-6 sm:gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+          } ${
+            isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-8'
+          }`}>
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -673,55 +741,95 @@ export default function Projects() {
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className={`w-full ${
+                      isMobile ? 'h-48' : isTablet ? 'h-56' : 'h-64'
+                    } object-cover group-hover:scale-105 transition-transform duration-300`}
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className={`absolute ${
+                    isMobile ? 'top-3 left-3' : 'top-4 left-4'
+                  }`}>
+                    <span className={`bg-primary text-primary-foreground ${
+                      isMobile ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm'
+                    } rounded-full font-semibold`}>
                       {project.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-background/90 backdrop-blur-sm text-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className={`absolute ${
+                    isMobile ? 'top-3 right-3' : 'top-4 right-4'
+                  }`}>
+                    <span className={`bg-background/90 backdrop-blur-sm text-foreground ${
+                      isMobile ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm'
+                    } rounded-full font-semibold`}>
                       {project.location}
                     </span>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <div className={`${
+                  isMobile ? 'p-4' : isTablet ? 'p-5' : 'p-6'
+                }`}>
+                  <h3 className={`${
+                    isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-xl'
+                  } font-bold text-foreground ${
+                    isMobile ? 'mb-2' : 'mb-2'
+                  } group-hover:text-primary transition-colors`}>
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-2">
+                  <p className={`${
+                    isMobile ? 'text-xs' : isTablet ? 'text-sm' : 'text-sm'
+                  } text-muted-foreground ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  } line-clamp-2`}>
                     {project.description}
                   </p>
                   
-                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                  <div className={`flex items-center justify-between ${
+                    isMobile ? 'text-xs' : 'text-sm'
+                  } text-muted-foreground ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-1" />
+                      <Calendar className={`${
+                        isMobile ? 'w-3 h-3' : 'w-4 h-4'
+                      } mr-1`} />
                       {project.completionDate}
                     </div>
                     <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-1" />
+                      <MapPin className={`${
+                        isMobile ? 'w-3 h-3' : 'w-4 h-4'
+                      } mr-1`} />
                       {project.location}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm mb-4">
+                  <div className={`flex items-center justify-between ${
+                    isMobile ? 'text-xs' : 'text-sm'
+                  } ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>
                     <span className="text-muted-foreground">Size: {project.size}</span>
                     <span className="font-semibold text-primary">{project.budget}</span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className={`flex flex-wrap ${
+                    isMobile ? 'gap-1' : 'gap-2'
+                  } ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>
                     {project.features.slice(0, 2).map((feature, idx) => (
                       <span
                         key={idx}
-                        className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-xs"
+                        className={`bg-secondary text-secondary-foreground ${
+                          isMobile ? 'px-1.5 py-0.5 text-xs' : 'px-2 py-1 text-xs'
+                        } rounded`}
                       >
                         {feature}
                       </span>
                     ))}
                     {project.features.length > 2 && (
-                      <span className="text-xs text-muted-foreground">
+                      <span className={`${
+                        isMobile ? 'text-xs' : 'text-xs'
+                      } text-muted-foreground`}>
                         +{project.features.length - 2} more
                       </span>
                     )}
@@ -729,10 +837,14 @@ export default function Projects() {
 
                   <Button 
                     variant="outline" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                    className={`w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors ${
+                      isMobile ? 'text-sm py-2' : 'text-base py-2'
+                    } touch-target`}
                   >
                     View Details
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className={`${
+                      isMobile ? 'w-3 h-3' : 'w-4 h-4'
+                    } ml-2`} />
                   </Button>
                 </div>
               </div>

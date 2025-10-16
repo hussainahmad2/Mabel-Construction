@@ -1,8 +1,10 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import CustomLogo from "./CustomLogo";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   const footerLinks = {
     services: [
@@ -36,43 +38,81 @@ export default function Footer() {
 
   return (
     <footer className="bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-responsive">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className={`${
+          isMobile ? 'py-12' : isTablet ? 'py-14' : 'py-16'
+        } grid ${
+          isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-5'
+        } ${
+          isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+        }`}>
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <CustomLogo size="md" animated={false} variant="light" />
-            <p className="text-background/80 mt-6 leading-relaxed max-w-md">
+          <div className={`${
+            isMobile ? 'col-span-1' : isTablet ? 'col-span-2' : 'col-span-2'
+          }`}>
+            <CustomLogo size={isMobile ? "sm" : isTablet ? "md" : "lg"} animated={false} variant="light" />
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+            } text-background/80 ${
+              isMobile ? 'mt-4' : isTablet ? 'mt-5' : 'mt-6'
+            } leading-relaxed max-w-md`}>
               Bold construction excellence that transforms your vision into reality. 
               Experience the perfect blend of modern design and proven craftsmanship.
             </p>
             
             {/* Contact Info */}
-            <div className="mt-8 space-y-4">
+            <div className={`${
+              isMobile ? 'mt-6' : isTablet ? 'mt-7' : 'mt-8'
+            } ${
+              isMobile ? 'space-y-3' : 'space-y-4'
+            }`}>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary" />
-                <span className="text-background/90">(555) 123-4567</span>
+                <Phone className={`${
+                  isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                } text-primary`} />
+                <span className={`${
+                  isMobile ? 'text-sm' : 'text-base'
+                } text-background/90`}>(555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <span className="text-background/90">info@mabelconstruction.com</span>
+                <Mail className={`${
+                  isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                } text-primary`} />
+                <span className={`${
+                  isMobile ? 'text-sm' : 'text-base'
+                } text-background/90`}>info@mabelconstruction.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-background/90">123 Construction Ave, Building City, BC 12345</span>
+                <MapPin className={`${
+                  isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                } text-primary`} />
+                <span className={`${
+                  isMobile ? 'text-sm' : 'text-base'
+                } text-background/90`}>123 Construction Ave, Building City, BC 12345</span>
               </div>
             </div>
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-lg font-bold text-background mb-6">Services</h3>
-            <ul className="space-y-3">
+          <div className={`${
+            isMobile ? 'mt-6' : ''
+          }`}>
+            <h3 className={`${
+              isMobile ? 'text-base' : 'text-lg'
+            } font-bold text-background ${
+              isMobile ? 'mb-4' : 'mb-6'
+            }`}>Services</h3>
+            <ul className={`${
+              isMobile ? 'space-y-2' : 'space-y-3'
+            }`}>
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <a 
                     href="#" 
-                    className="text-background/80 hover:text-primary transition-colors"
+                    className={`${
+                      isMobile ? 'text-sm' : 'text-base'
+                    } text-background/80 hover:text-primary transition-colors`}
                     data-testid={`footer-service-${index}`}
                   >
                     {link}
@@ -83,14 +123,24 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div>
-            <h3 className="text-lg font-bold text-background mb-6">Company</h3>
-            <ul className="space-y-3">
+          <div className={`${
+            isMobile ? 'mt-6' : ''
+          }`}>
+            <h3 className={`${
+              isMobile ? 'text-base' : 'text-lg'
+            } font-bold text-background ${
+              isMobile ? 'mb-4' : 'mb-6'
+            }`}>Company</h3>
+            <ul className={`${
+              isMobile ? 'space-y-2' : 'space-y-3'
+            }`}>
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <a 
                     href="#" 
-                    className="text-background/80 hover:text-primary transition-colors"
+                    className={`${
+                      isMobile ? 'text-sm' : 'text-base'
+                    } text-background/80 hover:text-primary transition-colors`}
                     data-testid={`footer-company-${index}`}
                   >
                     {link}
@@ -101,14 +151,24 @@ export default function Footer() {
           </div>
 
           {/* Resources */}
-          <div>
-            <h3 className="text-lg font-bold text-background mb-6">Resources</h3>
-            <ul className="space-y-3">
+          <div className={`${
+            isMobile ? 'mt-6' : ''
+          }`}>
+            <h3 className={`${
+              isMobile ? 'text-base' : 'text-lg'
+            } font-bold text-background ${
+              isMobile ? 'mb-4' : 'mb-6'
+            }`}>Resources</h3>
+            <ul className={`${
+              isMobile ? 'space-y-2' : 'space-y-3'
+            }`}>
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
                   <a 
                     href="#" 
-                    className="text-background/80 hover:text-primary transition-colors"
+                    className={`${
+                      isMobile ? 'text-sm' : 'text-base'
+                    } text-background/80 hover:text-primary transition-colors`}
                     data-testid={`footer-resource-${index}`}
                   >
                     {link}
@@ -120,30 +180,48 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="py-8 border-t border-background/20">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div className={`${
+          isMobile ? 'py-6' : 'py-8'
+        } border-t border-background/20`}>
+          <div className={`flex ${
+            isMobile ? 'flex-col' : 'flex-row'
+          } items-center justify-between ${
+            isMobile ? 'space-y-4' : 'space-y-0'
+          }`}>
             {/* Copyright */}
-            <p className="text-background/60 text-sm">
+            <p className={`${
+              isMobile ? 'text-xs' : 'text-sm'
+            } text-background/60`}>
               © {currentYear} Mabel Construction. All rights reserved.
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
+            <div className={`flex items-center ${
+              isMobile ? 'space-x-3' : 'space-x-4'
+            }`}>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-200"
+                  className={`${
+                    isMobile ? 'w-8 h-8' : 'w-10 h-10'
+                  } bg-background/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-200 touch-target`}
                   data-testid={`social-${social.label.toLowerCase()}`}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className={`${
+                    isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                  }`} />
                 </a>
               ))}
             </div>
 
             {/* Legal Links */}
-            <div className="flex items-center space-x-6 text-sm">
+            <div className={`flex items-center ${
+              isMobile ? 'space-x-4' : 'space-x-6'
+            } ${
+              isMobile ? 'text-xs' : 'text-sm'
+            }`}>
               <a 
                 href="#" 
                 className="text-background/60 hover:text-primary transition-colors"

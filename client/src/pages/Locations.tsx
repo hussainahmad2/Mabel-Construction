@@ -3,10 +3,12 @@ import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle, Star } from "lucid
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Locations() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(0);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -146,16 +148,26 @@ export default function Locations() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               OUR
               <span className="block text-primary">LOCATIONS</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Serving the Twin Cities and surrounding areas with multiple convenient locations. 
               Find the Mabel Construction office nearest you for personalized service.
             </p>

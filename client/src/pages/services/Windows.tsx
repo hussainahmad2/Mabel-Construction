@@ -3,9 +3,11 @@ import { Zap, CheckCircle, Star, ArrowRight, Calendar, MapPin, Phone } from "luc
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Windows() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -92,18 +94,34 @@ export default function Windows() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               Complete Window Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               From replacement to new installation, we provide comprehensive window services for every need.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {windowServices.map((service, index) => (
               <div
                 key={index}
@@ -115,27 +133,57 @@ export default function Windows() {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-48 object-cover"
+                  className={`w-full ${
+                    isMobile ? 'h-40' : isTablet ? 'h-44' : 'h-48'
+                  } object-cover`}
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                <div className={`${
+                  isMobile ? 'p-4' : isTablet ? 'p-5' : 'p-6'
+                }`}>
+                  <h3 className={`${
+                    isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-xl'
+                  } font-bold text-foreground ${
+                    isMobile ? 'mb-2' : 'mb-3'
+                  }`}>{service.title}</h3>
+                  <p className={`${
+                    isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+                  } text-muted-foreground ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>{service.description}</p>
                   
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2">Features:</h4>
-                    <div className="space-y-1">
+                  <div className={`${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>
+                    <h4 className={`${
+                      isMobile ? 'text-sm' : 'text-base'
+                    } font-semibold text-foreground ${
+                      isMobile ? 'mb-2' : 'mb-2'
+                    }`}>Features:</h4>
+                    <div className={`${
+                      isMobile ? 'space-y-1' : 'space-y-1'
+                    }`}>
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <CheckCircle className={`${
+                            isMobile ? 'w-3 h-3' : 'w-4 h-4'
+                          } text-primary mr-2 flex-shrink-0`} />
+                          <span className={`${
+                            isMobile ? 'text-xs' : 'text-sm'
+                          } text-muted-foreground`}>{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-primary">{service.startingPrice}</span>
-                    <Button variant="outline" size="sm">
+                  <div className={`flex items-center ${
+                    isMobile ? 'flex-col gap-3' : 'justify-between'
+                  }`}>
+                    <span className={`${
+                      isMobile ? 'text-base' : 'text-lg'
+                    } font-bold text-primary`}>{service.startingPrice}</span>
+                    <Button variant="outline" size={isMobile ? "sm" : "sm"} className={`${
+                      isMobile ? 'w-full' : 'w-auto'
+                    } touch-target`}>
                       Get Quote
                     </Button>
                   </div>

@@ -1,7 +1,10 @@
 import { Home, Building, Wrench, Hammer, PaintBucket, Zap } from "lucide-react";
 import ServiceCard from "./ServiceCard";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function ServicesSection() {
+  const { isMobile, isTablet, isDesktop } = useResponsive();
+  
   const services = [
     {
       icon: Home,
@@ -72,22 +75,38 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className={`${
+      isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+    } bg-secondary/30`}>
+      <div className="container-responsive">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-6">
+        <div className={`text-center ${
+          isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+        }`}>
+          <h2 className={`${
+            isMobile ? 'text-2xl' : isTablet ? 'text-3xl md:text-4xl' : 'text-5xl'
+          } font-black text-foreground ${
+            isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-8'
+          }`}>
             SERVICES
             <span className="block text-primary">We Provide</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className={`${
+            isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+          } text-muted-foreground max-w-3xl mx-auto leading-relaxed ${
+            isMobile ? 'px-4' : 'px-0'
+          }`}>
             Mabel Construction delivers comprehensive construction services with bold design and exceptional quality. 
             From custom homes to commercial projects, we build your vision with precision and style.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className={`grid ${
+          isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+        } ${
+          isMobile ? 'gap-4' : isTablet ? 'gap-6' : 'gap-8'
+        }`}>
           {services.map((service, index) => (
             <div
               key={index}
@@ -101,12 +120,22 @@ export default function ServicesSection() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
-          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
+        <div className={`text-center ${
+          isMobile ? 'mt-8' : isTablet ? 'mt-12' : 'mt-16'
+        } ${isMobile ? 'px-4' : 'px-0'}`}>
+          <p className={`${
+            isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+          } text-muted-foreground ${
+            isMobile ? 'mb-6' : isTablet ? 'mb-8' : 'mb-8'
+          }`}>
             Need a custom solution? We're here to help bring your vision to life.
           </p>
           <button 
-            className="bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-md hover-elevate active-elevate-2 transition-all min-h-[48px] w-full sm:w-auto"
+            className={`bg-primary text-primary-foreground ${
+              isMobile ? 'px-6 py-3 text-base' : isTablet ? 'px-8 py-4 text-lg' : 'px-10 py-5 text-xl'
+            } font-semibold rounded-md hover-elevate active-elevate-2 transition-all touch-target ${
+              isMobile ? 'w-full' : 'w-auto'
+            }`}
             data-testid="button-services-consultation"
           >
             Schedule Free Consultation

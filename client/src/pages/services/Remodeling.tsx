@@ -3,9 +3,11 @@ import { Home, Wrench, CheckCircle, Star, ArrowRight, Calendar, MapPin, Phone } 
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Remodeling() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -94,16 +96,26 @@ export default function Remodeling() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               REMODELING
               <span className="block text-primary">SERVICES</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Transform your space with our expert remodeling services. From kitchen renovations to whole house 
               makeovers, we bring your vision to life with quality craftsmanship.
             </p>
@@ -112,18 +124,34 @@ export default function Remodeling() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               Complete Remodeling Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Whether you're updating a single room or transforming your entire home, we have the expertise to deliver exceptional results.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {remodelingServices.map((service, index) => (
               <div
                 key={index}
@@ -135,27 +163,57 @@ export default function Remodeling() {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-48 object-cover"
+                  className={`w-full ${
+                    isMobile ? 'h-40' : isTablet ? 'h-44' : 'h-48'
+                  } object-cover`}
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                <div className={`${
+                  isMobile ? 'p-4' : isTablet ? 'p-5' : 'p-6'
+                }`}>
+                  <h3 className={`${
+                    isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-xl'
+                  } font-bold text-foreground ${
+                    isMobile ? 'mb-2' : 'mb-3'
+                  }`}>{service.title}</h3>
+                  <p className={`${
+                    isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+                  } text-muted-foreground ${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>{service.description}</p>
                   
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2">Includes:</h4>
-                    <div className="space-y-1">
+                  <div className={`${
+                    isMobile ? 'mb-3' : 'mb-4'
+                  }`}>
+                    <h4 className={`${
+                      isMobile ? 'text-sm' : 'text-base'
+                    } font-semibold text-foreground ${
+                      isMobile ? 'mb-2' : 'mb-2'
+                    }`}>Includes:</h4>
+                    <div className={`${
+                      isMobile ? 'space-y-1' : 'space-y-1'
+                    }`}>
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <CheckCircle className={`${
+                            isMobile ? 'w-3 h-3' : 'w-4 h-4'
+                          } text-primary mr-2 flex-shrink-0`} />
+                          <span className={`${
+                            isMobile ? 'text-xs' : 'text-sm'
+                          } text-muted-foreground`}>{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-primary">{service.startingPrice}</span>
-                    <Button variant="outline" size="sm">
+                  <div className={`flex items-center ${
+                    isMobile ? 'flex-col gap-3' : 'justify-between'
+                  }`}>
+                    <span className={`${
+                      isMobile ? 'text-base' : 'text-lg'
+                    } font-bold text-primary`}>{service.startingPrice}</span>
+                    <Button variant="outline" size={isMobile ? "sm" : "sm"} className={`${
+                      isMobile ? 'w-full' : 'w-auto'
+                    } touch-target`}>
                       Get Quote
                     </Button>
                   </div>
@@ -260,18 +318,34 @@ export default function Remodeling() {
       </section>
 
       {/* Recent Projects */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               Recent Remodeling Projects
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Discover our latest remodeling transformations that showcase our design expertise and quality craftsmanship.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-2'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {/* Project 1 - Completed */}
             <div className={`bg-card border border-card-border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

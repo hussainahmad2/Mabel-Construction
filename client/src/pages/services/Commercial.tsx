@@ -3,9 +3,11 @@ import { Building, CheckCircle, Star, ArrowRight, Calendar, MapPin, Phone } from
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function Commercial() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -73,16 +75,26 @@ export default function Commercial() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               COMMERCIAL
               <span className="block text-primary">CONSTRUCTION</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Professional commercial construction services for businesses of all sizes. From office buildings 
               to retail spaces, we deliver quality results that support your business goals.
             </p>
@@ -91,18 +103,34 @@ export default function Commercial() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               Commercial Construction Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               We specialize in creating commercial spaces that enhance business operations and customer experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {commercialServices.map((service, index) => (
               <div
                 key={index}

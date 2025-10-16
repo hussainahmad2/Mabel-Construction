@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Eye, ExternalLink, Calendar, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import useResponsive from "@/hooks/use-responsive";
 
 interface ProjectCardProps {
   title: string;
@@ -23,6 +24,7 @@ export default function ProjectCard({
   onClick 
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
   
   return (
     <Card 
@@ -78,8 +80,12 @@ export default function ProjectCard({
         </div>
 
         {/* Enhanced Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span className={`bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold shadow-lg transition-all duration-300 ${
+        <div className={`absolute ${
+          isMobile ? 'top-2 left-2' : isTablet ? 'top-3 left-3' : 'top-4 left-4'
+        }`}>
+          <span className={`bg-primary text-primary-foreground ${
+            isMobile ? 'px-2 py-1 text-xs' : isTablet ? 'px-3 py-1.5 text-sm' : 'px-4 py-2 text-sm'
+          } rounded-full font-bold shadow-lg transition-all duration-300 ${
             isHovered ? 'scale-110 shadow-primary/25' : 'scale-100'
           }`}>
             {category}
@@ -87,8 +93,12 @@ export default function ProjectCard({
         </div>
         
         {/* Status Badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg transition-all duration-300 ${
+        <div className={`absolute ${
+          isMobile ? 'top-2 right-2' : isTablet ? 'top-3 right-3' : 'top-4 right-4'
+        }`}>
+          <span className={`${
+            isMobile ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-xs'
+          } rounded-full font-bold shadow-lg transition-all duration-300 ${
             status === "Under Construction" 
               ? 'bg-orange-500 text-white' 
               : 'bg-green-500 text-white'
@@ -108,37 +118,57 @@ export default function ProjectCard({
       </div>
 
       {/* Enhanced Content */}
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between mb-4">
-          <h3 className={`text-xl font-bold line-clamp-2 transition-all duration-300 ${
+      <CardContent className={`${
+        isMobile ? 'p-4' : isTablet ? 'p-5' : 'p-6'
+      }`}>
+        <div className={`flex items-start justify-between ${
+          isMobile ? 'mb-3' : 'mb-4'
+        }`}>
+          <h3 className={`${
+            isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-xl'
+          } font-bold line-clamp-2 transition-all duration-300 ${
             isHovered ? 'text-primary transform -translate-y-0.5' : 'text-foreground'
           }`}>
             {title}
           </h3>
-          <ExternalLink className={`w-5 h-5 flex-shrink-0 ml-2 transition-all duration-300 ${
+          <ExternalLink className={`${
+            isMobile ? 'w-4 h-4' : 'w-5 h-5'
+          } flex-shrink-0 ml-2 transition-all duration-300 ${
             isHovered ? 'text-primary transform rotate-12 scale-110' : 'text-muted-foreground'
           }`} />
         </div>
         
-        <p className={`text-muted-foreground mb-6 line-clamp-3 leading-relaxed transition-all duration-300 ${
+        <p className={`${
+          isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+        } text-muted-foreground ${
+          isMobile ? 'mb-4' : isTablet ? 'mb-5' : 'mb-6'
+        } line-clamp-3 leading-relaxed transition-all duration-300 ${
           isHovered ? 'text-foreground/80' : ''
         }`}>
           {description}
         </p>
         
         {/* Enhanced Project Details */}
-        <div className="space-y-3">
-          <div className={`flex items-center text-sm transition-all duration-300 ${
+        <div className={`${
+          isMobile ? 'space-y-2' : 'space-y-3'
+        }`}>
+          <div className={`flex items-center ${
+            isMobile ? 'text-xs' : 'text-sm'
+          } transition-all duration-300 ${
             isHovered ? 'text-foreground/80 transform translate-x-1' : 'text-muted-foreground'
           }`}>
-            <Calendar className="w-4 h-4 mr-2 text-primary" />
+            <Calendar className={`${
+              isMobile ? 'w-3 h-3' : 'w-4 h-4'
+            } mr-2 text-primary`} />
             <span>
               {status === "Under Construction" ? `Expected: ${completionDate}` : `Completed: ${completionDate}`}
             </span>
           </div>
           
           <div 
-            className={`flex items-center justify-between pt-2 border-t border-border/50 transition-all duration-300 cursor-pointer ${
+            className={`flex items-center justify-between ${
+              isMobile ? 'pt-2' : 'pt-2'
+            } border-t border-border/50 transition-all duration-300 cursor-pointer touch-target ${
               isHovered ? 'border-primary/20' : ''
             }`}
             onClick={(e) => {
@@ -146,15 +176,23 @@ export default function ProjectCard({
               onClick?.();
             }}
           >
-            <div className="flex items-center text-primary text-sm font-semibold">
-              <MapPin className="w-4 h-4 mr-1" />
+            <div className={`flex items-center text-primary ${
+              isMobile ? 'text-xs' : 'text-sm'
+            } font-semibold`}>
+              <MapPin className={`${
+                isMobile ? 'w-3 h-3' : 'w-4 h-4'
+              } mr-1`} />
               View Details
             </div>
-            <div className={`flex items-center text-xs text-muted-foreground transition-all duration-300 ${
+            <div className={`flex items-center ${
+              isMobile ? 'text-xs' : 'text-xs'
+            } text-muted-foreground transition-all duration-300 ${
               isHovered ? 'text-primary' : ''
             }`}>
               <span>Click to explore</span>
-              <ExternalLink className="w-3 h-3 ml-1" />
+              <ExternalLink className={`${
+                isMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'
+              } ml-1`} />
             </div>
           </div>
         </div>

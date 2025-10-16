@@ -3,9 +3,11 @@ import { Award, Users, Clock, Shield, CheckCircle, Star, Quote } from "lucide-re
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import useResponsive from "@/hooks/use-responsive";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
+  const { isMobile, isTablet, isDesktop } = useResponsive();
 
   useEffect(() => {
     setIsVisible(true);
@@ -67,16 +69,26 @@ export default function About() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`relative ${
+        isMobile ? 'py-16' : isTablet ? 'py-20' : 'py-24'
+      } bg-gradient-to-br from-primary/10 via-background to-secondary/20`}>
+        <div className="container-responsive">
           <div className={`text-center transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            <h1 className={`${
+              isMobile ? 'text-3xl' : isTablet ? 'text-4xl md:text-5xl' : 'text-6xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            } leading-tight`}>
               ABOUT
               <span className="block text-primary">MABEL CONSTRUCTION</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className={`${
+              isMobile ? 'text-base' : isTablet ? 'text-lg' : 'text-xl'
+            } text-muted-foreground max-w-4xl mx-auto leading-relaxed ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Building excellence in the Twin Cities for over two decades. We're more than just contractors – 
               we're your partners in bringing your construction dreams to life.
             </p>
@@ -85,9 +97,15 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-16'
+      } bg-secondary/30`}>
+        <div className="container-responsive">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-2' : isTablet ? 'grid-cols-2' : 'grid-cols-4'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {stats.map((stat, index) => (
               <div
                 key={index}
@@ -96,11 +114,23 @@ export default function About() {
                 }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
-                  <stat.icon className="w-8 h-8 text-primary" />
+                <div className={`inline-flex items-center justify-center ${
+                  isMobile ? 'w-12 h-12' : isTablet ? 'w-14 h-14' : 'w-16 h-16'
+                } bg-primary/20 rounded-full ${
+                  isMobile ? 'mb-3' : 'mb-4'
+                }`}>
+                  <stat.icon className={`${
+                    isMobile ? 'w-6 h-6' : isTablet ? 'w-7 h-7' : 'w-8 h-8'
+                  } text-primary`} />
                 </div>
-                <div className="text-3xl lg:text-4xl font-black text-primary mb-2">{stat.number}</div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
+                <div className={`${
+                  isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+                } font-black text-primary ${
+                  isMobile ? 'mb-1' : 'mb-2'
+                }`}>{stat.number}</div>
+                <div className={`${
+                  isMobile ? 'text-xs' : isTablet ? 'text-sm' : 'text-base'
+                } text-muted-foreground font-medium`}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -108,9 +138,15 @@ export default function About() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-1' : 'grid-cols-2'
+          } ${
+            isMobile ? 'gap-8' : isTablet ? 'gap-10' : 'gap-12'
+          } items-center`}>
             <div className={`transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}>
@@ -146,17 +182,33 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      } bg-secondary/30`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               Our Values
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               These core values guide everything we do and ensure we deliver the best possible experience for our clients.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-4'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {values.map((value, index) => (
               <div
                 key={index}
@@ -165,11 +217,23 @@ export default function About() {
                 }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-6">
-                  <value.icon className="w-8 h-8 text-primary" />
+                <div className={`inline-flex items-center justify-center ${
+                  isMobile ? 'w-12 h-12' : isTablet ? 'w-14 h-14' : 'w-16 h-16'
+                } bg-primary/20 rounded-full ${
+                  isMobile ? 'mb-4' : isTablet ? 'mb-5' : 'mb-6'
+                }`}>
+                  <value.icon className={`${
+                    isMobile ? 'w-6 h-6' : isTablet ? 'w-7 h-7' : 'w-8 h-8'
+                  } text-primary`} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                <h3 className={`${
+                  isMobile ? 'text-lg' : isTablet ? 'text-xl' : 'text-xl'
+                } font-bold text-foreground ${
+                  isMobile ? 'mb-3' : isTablet ? 'mb-4' : 'mb-4'
+                }`}>{value.title}</h3>
+                <p className={`${
+                  isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+                } text-muted-foreground leading-relaxed`}>{value.description}</p>
               </div>
             ))}
           </div>
@@ -177,17 +241,33 @@ export default function About() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-6">
+      <section className={`${
+        isMobile ? 'py-12' : isTablet ? 'py-16' : 'py-20'
+      }`}>
+        <div className="container-responsive">
+          <div className={`text-center ${
+            isMobile ? 'mb-8' : isTablet ? 'mb-12' : 'mb-16'
+          }`}>
+            <h2 className={`${
+              isMobile ? 'text-2xl' : isTablet ? 'text-3xl' : 'text-4xl'
+            } font-black text-foreground ${
+              isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+            }`}>
               What Our Clients Say
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className={`${
+              isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-lg'
+            } text-muted-foreground max-w-3xl mx-auto ${
+              isMobile ? 'px-4' : 'px-0'
+            }`}>
               Don't just take our word for it. Here's what our satisfied clients have to say about their experience with Mabel Construction.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className={`grid ${
+            isMobile ? 'grid-cols-1' : isTablet ? 'grid-cols-2' : 'grid-cols-3'
+          } ${
+            isMobile ? 'gap-6' : isTablet ? 'gap-8' : 'gap-8'
+          }`}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -196,18 +276,34 @@ export default function About() {
                 }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="flex items-center mb-4">
+                <div className={`flex items-center ${
+                  isMobile ? 'mb-3' : 'mb-4'
+                }`}>
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className={`${
+                      isMobile ? 'w-4 h-4' : 'w-5 h-5'
+                    } text-yellow-400 fill-current`} />
                   ))}
                 </div>
-                <Quote className="w-8 h-8 text-primary/60 mb-4" />
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <Quote className={`${
+                  isMobile ? 'w-6 h-6' : 'w-8 h-8'
+                } text-primary/60 ${
+                  isMobile ? 'mb-3' : 'mb-4'
+                }`} />
+                <p className={`${
+                  isMobile ? 'text-sm' : isTablet ? 'text-base' : 'text-base'
+                } text-muted-foreground ${
+                  isMobile ? 'mb-4' : isTablet ? 'mb-6' : 'mb-6'
+                } leading-relaxed`}>
                   "{testimonial.quote}"
                 </p>
                 <div>
-                  <div className="font-semibold text-foreground">{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.location}</div>
+                  <div className={`${
+                    isMobile ? 'text-sm' : 'text-base'
+                  } font-semibold text-foreground`}>{testimonial.author}</div>
+                  <div className={`${
+                    isMobile ? 'text-xs' : 'text-sm'
+                  } text-muted-foreground`}>{testimonial.location}</div>
                 </div>
               </div>
             ))}
