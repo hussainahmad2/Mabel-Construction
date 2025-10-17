@@ -20,7 +20,7 @@ export default function Projects() {
   }, []);
 
   const projects = [
-    // Roofing Projects
+    // ===== ROOFING PROJECTS =====
     {
       id: 1,
       title: "Minneapolis Residential Roof Replacement",
@@ -86,40 +86,15 @@ export default function Projects() {
       features: ["Reinforced Metal", "Specialized Ventilation", "Enhanced Support", "Industrial Grade"],
       status: "Under Construction"
     },
-    // Other Projects
+    
+    // ===== REMODELING PROJECTS =====
     {
       id: 6,
-      title: "Modern Luxury Estate",
-      category: "Residential",
-      location: "Minneapolis",
-      description: "A breathtaking 6,000 sq ft contemporary estate featuring floor-to-ceiling windows, infinity pool, and smart home automation throughout.",
-      imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-      completionDate: "March 2024",
-      size: "6,000 sq ft",
-      budget: "$2.5M",
-      features: ["Smart Home", "Infinity Pool", "Floor-to-Ceiling Windows", "Luxury Finishes"],
-      status: "Completed"
-    },
-    {
-      id: 7,
-      title: "Downtown Office Tower",
-      category: "Commercial", 
-      location: "St. Paul",
-      description: "15-story mixed-use development with retail space, modern offices, and rooftop amenities in the heart of downtown.",
-      imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-      completionDate: "January 2024",
-      size: "150,000 sq ft",
-      budget: "$15M",
-      features: ["Mixed-Use", "Rooftop Amenities", "Modern Offices", "Retail Space"],
-      status: "Completed"
-    },
-    {
-      id: 8,
       title: "Chef's Dream Kitchen",
       category: "Remodeling",
       location: "Maple Grove",
       description: "Complete luxury kitchen transformation with custom cabinetry, marble waterfall island, and professional-grade appliances.",
-      imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
+      imageUrl: "/assets/Remodelling/6.jpg",
       completionDate: "February 2024",
       size: "400 sq ft",
       budget: "$150K",
@@ -127,38 +102,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 9,
-      title: "Craftsman Style Home",
-      category: "Residential",
-      location: "Plymouth",
-      description: "Timeless 3,200 sq ft craftsman home with custom millwork, hardwood floors, and period-appropriate details.",
-      imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
-      completionDate: "December 2023",
-      size: "3,200 sq ft",
-      budget: "$800K",
-      features: ["Custom Millwork", "Hardwood Floors", "Period Details", "Energy Efficient"],
-      status: "Completed"
-    },
-    {
-      id: 10,
-      title: "Retail Shopping Center",
-      category: "Commercial",
-      location: "Rogers",
-      description: "45,000 sq ft shopping center with flagship stores, restaurants, and ample parking with sustainable design features.",
-      imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      completionDate: "November 2023",
-      size: "45,000 sq ft",
-      budget: "$8M",
-      features: ["Sustainable Design", "Flagship Stores", "Restaurants", "Ample Parking"],
-      status: "Completed"
-    },
-    {
-      id: 11,
+      id: 7,
       title: "Master Suite Addition",
       category: "Remodeling", 
       location: "Coon Rapids",
       description: "Luxurious master suite addition with spa-like bathroom, walk-in closet, and private balcony overlooking gardens.",
-      imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+      imageUrl: "/assets/Remodelling/7.jpg",
       completionDate: "October 2023",
       size: "800 sq ft",
       budget: "$200K",
@@ -166,39 +115,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 12,
-      title: "Industrial Warehouse",
-      category: "Commercial",
-      location: "Anoka",
-      description: "State-of-the-art 100,000 sq ft warehouse facility with advanced logistics systems and sustainable energy features.",
-      imageUrl: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
-      completionDate: "September 2023",
-      size: "100,000 sq ft",
-      budget: "$12M",
-      features: ["Advanced Logistics", "Sustainable Energy", "State-of-the-art", "Efficient Design"],
-      status: "Completed"
-    },
-    {
-      id: 13,
-      title: "Luxury Condo Renovation",
-      category: "Remodeling",
-      location: "Minneapolis",
-      description: "Complete renovation of a penthouse condo with modern finishes, smart home technology, and panoramic city views.",
-      imageUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
-      completionDate: "August 2023",
-      size: "2,500 sq ft",
-      budget: "$500K",
-      features: ["Smart Home", "Panoramic Views", "Modern Finishes", "Penthouse Design"],
-      status: "Completed"
-    },
-    // Remodelling Projects
-    {
-      id: 14,
+      id: 8,
       title: "Luxury Kitchen Remodel",
       category: "Remodeling",
       location: "Edina",
       description: "Complete kitchen transformation featuring custom cabinetry, quartz countertops, and premium appliances. This modern design maximizes space and functionality while maintaining elegant aesthetics.",
-      imageUrl: "/assets/Remodelling/6.jpg",
+      imageUrl: "/assets/Remodelling/8.jpg",
       completionDate: "December 2023",
       size: "350 sq ft",
       budget: "$85K",
@@ -206,12 +128,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 15,
+      id: 9,
       title: "Master Bathroom Renovation",
       category: "Remodeling",
       location: "Wayzata",
       description: "Spa-inspired master bathroom renovation with walk-in shower, freestanding tub, and custom vanity. Features heated floors and smart mirrors for ultimate luxury.",
-      imageUrl: "/assets/Remodelling/7.jpg",
+      imageUrl: "/assets/Remodelling/9.jpg",
       completionDate: "November 2023",
       size: "180 sq ft",
       budget: "$65K",
@@ -219,12 +141,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 16,
+      id: 10,
       title: "Basement Finishing Project",
       category: "Remodeling",
       location: "Plymouth",
       description: "Complete basement transformation into a family entertainment area with home theater, wet bar, and game room. Includes proper insulation and egress windows.",
-      imageUrl: "/assets/Remodelling/8.jpg",
+      imageUrl: "/assets/Remodelling/10.jpg",
       completionDate: "October 2023",
       size: "1,200 sq ft",
       budget: "$95K",
@@ -232,12 +154,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 17,
+      id: 11,
       title: "Living Room Modernization",
       category: "Remodeling",
       location: "Minnetonka",
       description: "Contemporary living room makeover with open concept design, built-in entertainment center, and custom lighting. Features hardwood floors and modern fireplace.",
-      imageUrl: "/assets/Remodelling/9.jpg",
+      imageUrl: "/assets/Remodelling/11.jpg",
       completionDate: "September 2023",
       size: "400 sq ft",
       budget: "$45K",
@@ -245,87 +167,63 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 18,
+      id: 12,
       title: "Home Office Conversion",
       category: "Remodeling",
       location: "St. Louis Park",
       description: "Converted spare bedroom into a professional home office with custom built-in desk, storage solutions, and soundproofing. Perfect for remote work.",
-      imageUrl: "/assets/Remodelling/10.jpg",
+      imageUrl: "/assets/Remodelling/12.jpg",
       completionDate: "August 2023",
       size: "120 sq ft",
       budget: "$25K",
       features: ["Custom Built-in Desk", "Storage Solutions", "Soundproofing", "Professional Setup"],
       status: "Completed"
     },
+    
+    // ===== COMMERCIAL PROJECTS =====
+    {
+      id: 13,
+      title: "Downtown Office Tower",
+      category: "Commercial", 
+      location: "St. Paul",
+      description: "15-story mixed-use development with retail space, modern offices, and rooftop amenities in the heart of downtown.",
+      imageUrl: "/assets/Commercial/13.jpg",
+      completionDate: "January 2024",
+      size: "150,000 sq ft",
+      budget: "$15M",
+      features: ["Mixed-Use", "Rooftop Amenities", "Modern Offices", "Retail Space"],
+      status: "Completed"
+    },
+    {
+      id: 14,
+      title: "Retail Shopping Center",
+      category: "Commercial",
+      location: "Rogers",
+      description: "45,000 sq ft shopping center with flagship stores, restaurants, and ample parking with sustainable design features.",
+      imageUrl: "/assets/Commercial/14.jpg",
+      completionDate: "November 2023",
+      size: "45,000 sq ft",
+      budget: "$8M",
+      features: ["Sustainable Design", "Flagship Stores", "Restaurants", "Ample Parking"],
+      status: "Completed"
+    },
+    {
+      id: 15,
+      title: "Industrial Warehouse",
+      category: "Commercial",
+      location: "Anoka",
+      description: "State-of-the-art 100,000 sq ft warehouse facility with advanced logistics systems and sustainable energy features.",
+      imageUrl: "/assets/Commercial/15.jpg",
+      completionDate: "September 2023",
+      size: "100,000 sq ft",
+      budget: "$12M",
+      features: ["Advanced Logistics", "Sustainable Energy", "State-of-the-art", "Efficient Design"],
+      status: "Completed"
+    },
+    
+    // ===== SLIDING PROJECTS =====
     {
       id: 19,
-      title: "Laundry Room Upgrade",
-      category: "Remodeling",
-      location: "Maple Grove",
-      description: "Complete laundry room renovation with custom cabinets, utility sink, and folding station. Includes new flooring and improved lighting for better functionality.",
-      imageUrl: "/assets/Remodelling/11.jpg",
-      completionDate: "July 2023",
-      size: "80 sq ft",
-      budget: "$18K",
-      features: ["Custom Cabinets", "Utility Sink", "Folding Station", "Improved Lighting"],
-      status: "Completed"
-    },
-    {
-      id: 20,
-      title: "Guest Bedroom Makeover",
-      category: "Remodeling",
-      location: "Coon Rapids",
-      description: "Elegant guest bedroom renovation with new flooring, custom closet system, and updated lighting. Features neutral colors and modern fixtures.",
-      imageUrl: "/assets/Remodelling/12.jpg",
-      completionDate: "June 2023",
-      size: "140 sq ft",
-      budget: "$22K",
-      features: ["New Flooring", "Custom Closet", "Updated Lighting", "Modern Fixtures"],
-      status: "Completed"
-    },
-    // Commercial Projects
-    {
-      id: 21,
-      title: "Office Building Renovation",
-      category: "Commercial",
-      location: "Bloomington",
-      description: "Complete renovation of a 20,000 sq ft office building with modern amenities, energy-efficient systems, and contemporary design. Includes new HVAC and electrical systems.",
-      imageUrl: "/assets/Commercial/13.jpg",
-      completionDate: "May 2023",
-      size: "20,000 sq ft",
-      budget: "$1.2M",
-      features: ["Modern Amenities", "Energy Efficient", "New HVAC", "Contemporary Design"],
-      status: "Completed"
-    },
-    {
-      id: 22,
-      title: "Retail Space Modernization",
-      category: "Commercial",
-      location: "Richfield",
-      description: "Complete modernization of retail space with open floor plan, modern fixtures, and improved customer flow. Features new flooring, lighting, and display areas.",
-      imageUrl: "/assets/Commercial/14.jpg",
-      completionDate: "April 2023",
-      size: "8,500 sq ft",
-      budget: "$450K",
-      features: ["Open Floor Plan", "Modern Fixtures", "Improved Flow", "New Flooring"],
-      status: "Completed"
-    },
-    {
-      id: 23,
-      title: "Restaurant Interior Design",
-      category: "Commercial",
-      location: "Uptown Minneapolis",
-      description: "Complete interior renovation of upscale restaurant with custom bar, dining areas, and kitchen upgrades. Features unique lighting and modern decor.",
-      imageUrl: "/assets/Commercial/15.jpg",
-      completionDate: "March 2023",
-      size: "3,200 sq ft",
-      budget: "$280K",
-      features: ["Custom Bar", "Dining Areas", "Kitchen Upgrades", "Unique Lighting"],
-      status: "Completed"
-    },
-    // Sliding Projects
-    {
-      id: 24,
       title: "Patio Door Installation",
       category: "Sliding",
       location: "Eden Prairie",
@@ -338,7 +236,7 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 25,
+      id: 20,
       title: "Closet Door Replacement",
       category: "Sliding",
       location: "Shoreview",
@@ -351,7 +249,7 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 26,
+      id: 21,
       title: "Barn Door Installation",
       category: "Sliding",
       location: "White Bear Lake",
@@ -363,93 +261,13 @@ export default function Projects() {
       features: ["Custom Hardware", "Track System", "Rustic Design", "Space Saving"],
       status: "Completed"
     },
-    // Windows Projects
     {
-      id: 27,
-      title: "Bay Window Installation",
-      category: "Windows",
-      location: "Stillwater",
-      description: "Custom bay window installation with energy-efficient triple-pane glass and custom trim work. Creates additional seating area and natural light.",
-      imageUrl: "/assets/Windows/19.jpg",
-      completionDate: "November 2022",
-      size: "6 ft wide",
-      budget: "$4,200",
-      features: ["Triple-Pane Glass", "Custom Trim", "Additional Seating", "Natural Light"],
-      status: "Completed"
-    },
-    {
-      id: 28,
-      title: "Eden Prairie Bay Window",
-      category: "Windows",
-      location: "Eden Prairie",
-      description: "Custom bay window installation with energy-efficient triple-pane glass and built-in seating area. Features panoramic views and enhanced natural lighting.",
-      imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
-      completionDate: "March 2024",
-      size: "8 ft wide",
-      budget: "$5,500",
-      features: ["Triple-Pane Glass", "Built-in Seating", "Panoramic Views", "Energy Efficient"],
-      status: "Completed"
-    },
-    {
-      id: 29,
-      title: "Minneapolis Skylights",
-      category: "Windows",
-      location: "Minneapolis",
-      description: "Multiple skylight installation project bringing natural light to a dark interior space with remote-controlled ventilation and energy-efficient glass.",
-      imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-      completionDate: "May 2024",
-      size: "4 Skylights",
-      budget: "$8,200",
-      features: ["Remote Control", "Energy Efficient", "Natural Light", "Ventilation"],
-      status: "Under Construction"
-    },
-    {
-      id: 30,
-      title: "St. Paul Window Replacement",
-      category: "Windows",
-      location: "St. Paul",
-      description: "Complete window replacement for a historic home with period-appropriate casement windows and custom trim work. Maintains architectural integrity while improving energy efficiency.",
-      imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
-      completionDate: "April 2024",
-      size: "12 Windows",
-      budget: "$18,500",
-      features: ["Period-Appropriate", "Custom Trim", "Energy Efficient", "Historic Preservation"],
-      status: "Completed"
-    },
-    {
-      id: 31,
-      title: "Maple Grove Office Windows",
-      category: "Windows",
-      location: "Maple Grove",
-      description: "Commercial window installation for office building with energy-efficient glass and modern architectural design. Features sound reduction and UV protection.",
-      imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      completionDate: "June 2024",
-      size: "20 Windows",
-      budget: "$45,000",
-      features: ["Energy Efficient", "Sound Reduction", "UV Protection", "Modern Design"],
-      status: "Under Construction"
-    },
-    {
-      id: 32,
-      title: "Plymouth Picture Window",
-      category: "Windows",
-      location: "Plymouth",
-      description: "Large picture window installation with panoramic views and energy-efficient glass for maximum natural light. Features custom framing and weather sealing.",
-      imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
-      completionDate: "February 2024",
-      size: "8 ft wide",
-      budget: "$3,800",
-      features: ["Panoramic Views", "Energy Efficient", "Custom Framing", "Weather Sealing"],
-      status: "Completed"
-    },
-    // Additional Siding Projects
-    {
-      id: 33,
+      id: 22,
       title: "Minneapolis Home Siding",
       category: "Sliding",
       location: "Minneapolis",
       description: "Complete vinyl siding replacement for a 2,500 sq ft home with energy-efficient insulation and custom trim work. Features weather-resistant materials and modern color scheme.",
-      imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+      imageUrl: "/assets/Sliding/19.jpg",
       completionDate: "March 2024",
       size: "2,500 sq ft",
       budget: "$22,000",
@@ -457,12 +275,12 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 34,
+      id: 23,
       title: "St. Paul Luxury Siding",
       category: "Sliding",
       location: "St. Paul",
       description: "Premium fiber cement siding installation with stone veneer accents and custom color matching for a modern aesthetic. Features enhanced durability and low maintenance.",
-      imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+      imageUrl: "/assets/Sliding/20.jpg",
       completionDate: "July 2024",
       size: "3,200 sq ft",
       budget: "$38,500",
@@ -470,12 +288,12 @@ export default function Projects() {
       status: "Under Construction"
     },
     {
-      id: 35,
+      id: 24,
       title: "Maple Grove Patio Doors",
       category: "Sliding",
       location: "Maple Grove",
       description: "Custom sliding patio door installation with energy-efficient glass and weatherproofing for year-round comfort. Features smooth operation and security locks.",
-      imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+      imageUrl: "/assets/Sliding/21.jpg",
       completionDate: "April 2024",
       size: "8 ft opening",
       budget: "$3,500",
@@ -483,72 +301,96 @@ export default function Projects() {
       status: "Completed"
     },
     {
-      id: 36,
-      title: "Plymouth Office Building",
+      id: 24,
+      title: "Maple Grove Patio Doors",
       category: "Sliding",
-      location: "Plymouth",
-      description: "Commercial metal siding installation with modern architectural panels and integrated ventilation systems. Features energy efficiency and contemporary design.",
-      imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      completionDate: "August 2024",
-      size: "15,000 sq ft",
-      budget: "$125,000",
-      features: ["Metal Panels", "Architectural Design", "Ventilation", "Energy Efficient"],
-      status: "Under Construction"
+      location: "Maple Grove",
+      description: "Custom sliding patio door installation with energy-efficient glass and weatherproofing for year-round comfort. Features smooth operation and security locks.",
+      imageUrl: "/assets/Sliding/22.jpg",
+      completionDate: "April 2024",
+      size: "8 ft opening",
+      budget: "$3,500",
+      features: ["Energy Efficient", "Weatherproofing", "Smooth Operation", "Security Locks"],
+      status: "Completed"
+    },{
+      id: 24,
+      title: "Maple Grove Patio Doors",
+      category: "Sliding",
+      location: "Maple Grove",
+      description: "Custom sliding patio door installation with energy-efficient glass and weatherproofing for year-round comfort. Features smooth operation and security locks.",
+      imageUrl: "/assets/Sliding/23.jpg",
+      completionDate: "April 2024",
+      size: "8 ft opening",
+      budget: "$3,500",
+      features: ["Energy Efficient", "Weatherproofing", "Smooth Operation", "Security Locks"],
+      status: "Completed"
     },
-    // Additional Remodelling Projects
+    // ===== WINDOWS PROJECTS =====
     {
-      id: 37,
-      title: "Edina Luxury Kitchen",
-      category: "Remodeling",
-      location: "Edina",
-      description: "Complete kitchen transformation featuring custom cabinetry, quartz countertops, premium appliances, and modern lighting design. This 350 sq ft space now serves as the heart of the home.",
-      imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
-      completionDate: "December 2023",
-      size: "350 sq ft",
-      budget: "$85,000",
-      features: ["Custom Cabinetry", "Quartz Countertops", "Premium Appliances", "Modern Lighting"],
+      id: 25,
+      title: "Bay Window Installation",
+      category: "Windows",
+      location: "Stillwater",
+      description: "Custom bay window installation with energy-efficient triple-pane glass and custom trim work. Creates additional seating area and natural light.",
+      imageUrl: "/assets/Windows/18.jpg",
+      completionDate: "November 2022",
+      size: "6 ft wide",
+      budget: "$4,200",
+      features: ["Triple-Pane Glass", "Custom Trim", "Additional Seating", "Natural Light"],
       status: "Completed"
     },
     {
-      id: 38,
-      title: "Wayzata Master Bathroom",
-      category: "Remodeling",
-      location: "Wayzata",
-      description: "Spa-inspired master bathroom renovation with walk-in shower, freestanding tub, custom vanity, and heated floors. Creating a luxurious retreat for relaxation.",
-      imageUrl: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
-      completionDate: "September 2024",
-      size: "180 sq ft",
-      budget: "$65,000",
-      features: ["Walk-in Shower", "Freestanding Tub", "Heated Floors", "Smart Mirrors"],
-      status: "Under Construction"
-    },
-    // Additional Commercial Projects
-    {
-      id: 39,
-      title: "Bloomington Office Complex",
-      category: "Commercial",
-      location: "Bloomington",
-      description: "Complete renovation of a 20,000 sq ft office building with modern amenities, energy-efficient systems, and contemporary design. Includes new HVAC, electrical, and flooring throughout.",
-      imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-      completionDate: "May 2023",
-      size: "20,000 sq ft",
-      budget: "$1,200,000",
-      features: ["Modern Amenities", "Energy Efficient", "New HVAC", "Contemporary Design"],
+      id: 26,
+      title: "Eden Prairie Bay Window",
+      category: "Windows",
+      location: "Eden Prairie",
+      description: "Custom bay window installation with energy-efficient triple-pane glass and built-in seating area. Features panoramic views and enhanced natural lighting.",
+      imageUrl: "/assets/Windows/19.jpg",
+      completionDate: "March 2024",
+      size: "8 ft wide",
+      budget: "$5,500",
+      features: ["Triple-Pane Glass", "Built-in Seating", "Panoramic Views", "Energy Efficient"],
       status: "Completed"
     },
     {
-      id: 40,
-      title: "Richfield Shopping Center",
-      category: "Commercial",
-      location: "Richfield",
-      description: "Complete modernization of retail space with open floor plan, modern fixtures, and improved customer flow. Features new flooring, lighting, and display areas for enhanced shopping experience.",
-      imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-      completionDate: "October 2024",
-      size: "8,500 sq ft",
-      budget: "$450,000",
-      features: ["Open Floor Plan", "Modern Fixtures", "Improved Flow", "New Flooring"],
+      id: 27,
+      title: "Minneapolis Skylights",
+      category: "Windows",
+      location: "Minneapolis",
+      description: "Multiple skylight installation project bringing natural light to a dark interior space with remote-controlled ventilation and energy-efficient glass.",
+      imageUrl: "/assets/Windows/25.jpg",
+      completionDate: "May 2024",
+      size: "4 Skylights",
+      budget: "$8,200",
+      features: ["Remote Control", "Energy Efficient", "Natural Light", "Ventilation"],
       status: "Under Construction"
-    }
+    },
+    {
+      id: 28,
+      title: "St. Paul Window Replacement",
+      category: "Windows",
+      location: "St. Paul",
+      description: "Complete window replacement for a historic home with period-appropriate casement windows and custom trim work. Maintains architectural integrity while improving energy efficiency.",
+      imageUrl: "/assets/Windows/26.jpg",
+      completionDate: "April 2024",
+      size: "12 Windows",
+      budget: "$18,500",
+      features: ["Period-Appropriate", "Custom Trim", "Energy Efficient", "Historic Preservation"],
+      status: "Completed"
+    },
+    {
+      id: 29,
+      title: "Maple Grove Office Windows",
+      category: "Windows",
+      location: "Maple Grove",
+      description: "Commercial window installation for office building with energy-efficient glass and modern architectural design. Features sound reduction and UV protection.",
+      imageUrl: "/assets/Windows/27.jpg",
+      completionDate: "June 2024",
+      size: "20 Windows",
+      budget: "$45,000",
+      features: ["Energy Efficient", "Sound Reduction", "UV Protection", "Modern Design"],
+      status: "Under Construction"
+    },
   ];
 
   const categories = ["All", "Roofing", "Residential", "Commercial", "Remodeling", "Sliding", "Windows"];
